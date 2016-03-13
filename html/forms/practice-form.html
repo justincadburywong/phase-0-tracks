@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Beer survey</title>
+</head>
+<body>
+<form name="practice" action="success.html" id="beer_feelings">
+	<fieldset>
+		<div>
+			<label>First Name:</label>
+			<input type="text" name="first name">
+		</div>
+		<div>
+			<label>Last Name:</label>
+			<input type="text" name="last name">
+		</div>
+		<div>
+			<label>Email:</label>
+			<input type="email" name="email">
+		</div>
+	</fieldset>
+	<fieldset>
+		<div>
+			<select name="Styles of beer">
+				<option value="IPA">IPA</option>
+				<option value="pilsner">Pilsner</option>
+				<option value="stout">Stout</option>
+			</select>
+		</div>
+		<div>
+			<label>How do you feel about beer:</label>
+			<textarea name="feelings" form="beer_feelings" placeholder="tell me all about your feels about beer!"></textarea>
+		</div>
+	</fieldset>
+	<button type="submit">Complete our survey</button>
+</form>
+<textarea name="comment" form="beer_feelings">Enter text here..</textarea>
+
+
+
+</body>
+</html>
