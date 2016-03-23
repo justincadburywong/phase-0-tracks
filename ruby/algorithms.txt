@@ -1,0 +1,38 @@
+Release 0:
+	i will train my robot the day i bring it home, which would mean that it will first interact with the elevator on the first floor, or lobby.  that sets a pretty good baseline.
+
+	if desired floor is n,
+		press the nth button
+		allow doors to close
+		wait until nth floor is reached
+		exit
+
+	if other people join the elevator
+		say hello
+
+	if people in the elevator leave
+		say goodbye
+
+	if that annoying neighbor from down the hall is visible, 
+		smash repeatedly the "door close" button until the doors are closed, 
+	else
+		begrudigingly say hello
+
+
+
+Release 1:
+
+Washing my hands
+
+If hands are dirty or have not been washed in 8 hours
+	go to sink
+	turn on faucet
+	wet hands
+	apply soap
+	scrub for 20 seconds
+	rinse soap off hands under water
+	turn off water
+	dry with a towel
+
+else
+	have a great day
