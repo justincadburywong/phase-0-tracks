@@ -1,0 +1,28 @@
+Release 0:
+	if the user requests floor n, press the n button!
+
+
+
+Release 1:
+
+Taking a shower:
+If I've showered within 24 hours,
+	skip
+else
+	turn on hot and cold water
+
+if i washed my hair within 48 hours,
+	skip to condition
+else
+	apply shampoo
+
+if i've conditioned my hair within 24 hours,
+	wash body
+else 
+	apply conditioner
+
+wash body
+
+turn off water
+
+cycle complete
