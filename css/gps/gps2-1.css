@@ -1,3 +1,49 @@
-body {
-	background-color: blue;
+header {
+    background-color: lavender;
+    color: white;
+    font-family: Helvetica, sans-serif;
+    border: 1px solid blue;
+    padding: 20px;
+}
+
+header > p {
+    background-color: red;
+    color: black;
+    display: block;
+}
+
+section {
+    /*width: 50%;*/
+    /*float: left;*/
+    display: table-cell;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+}
+
+.column-2 {
+
+    background-color: green;
+}
+
+.column-1 {
+
+    background-color: purple;
+
+}
+
+li, code {
+	background-color: gray;
+}
+
+
+footer {
+	background-color: red;
+    color: black;
+    display: block;
+    align: center;
+    height: 80px;
+    padding: 10px;
+    font-family: Helvetica, sans-serif;
+    margin: 0;
 }
