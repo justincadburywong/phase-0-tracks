@@ -53,7 +53,6 @@ while applied<employees
 	end
 	
 	if allergies == "sunshine"
-		puts "probably a vampire."
 		allergies = true
 		break
 	elsif allergies == "done"
@@ -62,21 +61,26 @@ while applied<employees
 	
 	
 	if true_age && (hungry || health)
-		puts "probably not a vampire";
+		test = "probably not a vampire";
 	elsif 
 		true_age  || (hungry || health)
-		puts "probably a vampire";
+		test = "probably a vampire";
 	elsif 
 		true_age && (hungry && health)
-		puts "almost certainly a vampire";
-	elsif 
-		(name=="Drake Cula" || name=="Tu Fang")
-		puts "definitely a vampire"
-	
+		test = "almost certainly a vampire";
 	else	
-		puts "results inconclusive";
+		test = "results inconclusive";
 	end
 
+	if allergies = true
+		test = "probably a vampire."
+	end
+
+	if (name=="Drake Cula" || name=="Tu Fang")
+		test = "definitely a vampire"
+	end
+	puts test
+	
 applied +=1
 
 end
