@@ -37,7 +37,9 @@ def decrypt(string)
     if string[letters].next == "a"
       decrypted_input << "z"
       #if we type an "a", it will input "a".  we want it to turn "a" back in just "z"
+    elsif string
     else
+
       decrypted_input << alphabet[alphabet.index(string[letters]) - 1]
       #otherwise take a letter and go back a letter, storing the value inside the variable "decrypted_input"
     end   
@@ -48,6 +50,8 @@ def decrypt(string)
   decrypted_input
 end
 
+
+#we couldn't get release 4 to work because of the spaces in the string "The duck flies at midnight".
 
 puts "Would you like to decrypt or encrypt a password? (decrypt/encrypt)"
 answer = gets.chomp
