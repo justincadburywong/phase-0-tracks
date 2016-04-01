@@ -1,3 +1,11 @@
+def real_city(x, y, z)
+	return [x, y, z]
+end
+
+def new_array(array, item)
+	return array << item
+end
+
 California = []
 p California
 California << "San Diego"
@@ -24,3 +32,6 @@ p Illinois
 Calinois = []
 Calinois << California << Illinois
 p Calinois
+
+p real_city(2, 3, 4)
+p new_array(Calinois, "Downers Grove")
