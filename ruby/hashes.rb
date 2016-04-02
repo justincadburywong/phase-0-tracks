@@ -5,17 +5,17 @@ interior_designer = gets.chomp.to_i
 
 until interior_designer == 0
  #asks for a name and turns it into the hash:
-  puts "What's the name?"
+  puts "What's the name of the client?"
   client_name = gets.chomp.to_s
   client_name = {}
 
 #ask loop for any info from the client and about their preferences
-  puts "What is the age?"
+  puts "What is the age of the client?"
     age = gets.chomp.to_i
   puts "How many children do they have?"
   	children = gets.chomp.to_i
   puts "What type of decor theme do they like?"
-    decor = gets.chomp.to_s
+    decor = gets.chomp.to_sym
 
 #shove it in a new hash
 client_name[:age] = age
@@ -23,7 +23,7 @@ client_name[:children] = children
 client_name[:decor] = decor
 
 #prints out the hash so the user can see it
-  p "#{client_name}"
+  p client_name
   
 #give them an opportunity to corrent anything
 puts "Do you need to change anything?"
@@ -33,7 +33,7 @@ if change != "no"
 	puts "Let me know what needs to be changed:"
 	new_key = gets.chomp
 	puts "What is it changed to?"
-	new_value = gets.chomp
+	new_value = gets.chomp.to_sym
 	client_name[new_key.to_sym] = new_value
 end
 
