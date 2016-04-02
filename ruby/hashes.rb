@@ -7,7 +7,7 @@ until interior_designer == 0
  #asks for a name and turns it into the hash:
   puts "What's the name of the client?"
   client_name = gets.chomp.to_s
-  client_name = {}
+  client_name = Hash.new
 
 #ask loop for any info from the client and about their preferences
   puts "What is the age of the client?"
@@ -35,9 +35,9 @@ if change != "no"
 	puts "What is it changed to?"
 	new_value = gets.chomp.to_sym
 	client_name[new_key.to_sym] = new_value
+	p "#{client_name}"
 end
 
-p "#{client_name}"
   
  puts "Thanks for the info!  We've stored it neatly away!"
  interior_designer -= 1
