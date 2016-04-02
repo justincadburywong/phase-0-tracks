@@ -1,45 +1,40 @@
 
 #ask for how many interior designers will be entering details for their client:
-puts "Hello fabulous!  What details about your client will you be entering today?"
+puts "Hello fabulous!  How many clients will you be entering today?"
 interior_designer = gets.chomp.to_i
 
 until interior_designer == 0
  #asks for a name and turns it into the hash:
-  puts "what's your name?"
-  client_name = gets.chomp
+  puts "What's the name?"
+  client_name = gets.chomp.to_s
   client_name = {}
 
 #ask loop for any info from the client and about their preferences
-  puts "What is your age?"
+  puts "What is the age?"
     age = gets.chomp.to_i
-  puts "How many children do you have?"
+  puts "How many children do they have?"
   	children = gets.chomp.to_i
-  puts "What type of decor theme do you like?"
+  puts "What type of decor theme do they like?"
     decor = gets.chomp.to_s
 
-# client_data = {
-# 	client_name: client_name,
-# 	age: age,
-# 	children: children,
-# 	decor: decor,
-# }
-client_name["age"] = age
-client_name["children"] = children
-client_name["decor"] = decor
+#shove it in a new hash
+client_name[:age] = age
+client_name[:children] = children
+client_name[:decor] = decor
 
 #prints out the hash so the user can see it
   p "#{client_name}"
   
 #give them an opportunity to corrent anything
 puts "Do you need to change anything?"
-change = gets.chomp
+change = gets.chomp.downcase
 
-if change == "yes"
+if change != "no"
 	puts "Let me know what needs to be changed:"
 	new_key = gets.chomp
 	puts "What is it changed to?"
 	new_value = gets.chomp
-	client_name[new_key.sym] = new_value
+	client_name[new_key.to_sym] = new_value
 end
 
 p "#{client_name}"
