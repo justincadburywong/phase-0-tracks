@@ -12,6 +12,7 @@
 # letter on either vowels or consonants
 def name_maker(new_name)
 	# we need a new array for our new name to go into
+	# for release 2 i changed it to have global access
 	@new_alias = []
 	# and a start point
 	index = 0
