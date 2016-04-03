@@ -12,10 +12,12 @@
 # letter on either vowels or consonants
 def name_maker(new_name)
 	# we need a new array for our new name to go into
+	# for release 2 i changed it to have global access
 	@new_alias = []
 	# and a start point
 	index = 0
-	# some variables that hold our vowels and consonants for edge cases
+	# some variables that hold our vowels and consonants for the
+	# sequence of using .next
 	vowels = "aeiou"
 	consonants = "bcdfghjklmnpqrstvwxyz"
 
@@ -24,7 +26,7 @@ def name_maker(new_name)
 	while index < new_name.length
 		letter = new_name[index]
 		if vowels.include?(letter)
-			# in case the letter is 'u', go around to the letter 'a'
+			# EDGE CASE in case the letter is 'u', go around to the letter 'a'
 			if letter == "u"
 				@new_alias.push("a")
 			else
@@ -32,7 +34,7 @@ def name_maker(new_name)
 				@new_alias.push(vowels[new_letter.next] )
 			end
 		elsif consonants.include?(letter)
-			# in case the letter is 'z', go around to the letter 'b'
+			# EDGE CASE in case the letter is 'z', go around to the letter 'b'
 			if letter == "z"
 				@new_alias.push("b")
 			else
@@ -46,8 +48,10 @@ def name_maker(new_name)
   # ratchet up the name until the letters are all manipulated
 	index += 1
 	end
-  # bring it all back together to form a new name
-  @alias = @new_alias.join("").split(" ").each{|x| print x.capitalize, " "}
+ # bring all the letters in the array to form two elements in the array
+ @alias = @new_alias.join("").split(" ")
+ # bring both back together to form a new name with a space between
+ @alias.each{|name| print name.capitalize, " "}
 end	
 
 
@@ -56,16 +60,20 @@ end
 # and print all of the data the user entered. 
 # A sentence like "Vussit Gimodoe is actually Felicia Torres" or 
 # "Felicia Torres is also known as Vussit Gimodoe" for each agent is fine.
+
+# Empty hash to store our real/alias names in
 true_name_alias_name = {}
 loop {
   puts
   puts "I've got a secret-agent name converter!  What's your name?  Or just type 'quit' to exit"
   name = gets.chomp.downcase
+  # just in case they hit 'enter' or actually type quit to stop
   if name == "quit" || name == ""
     true_name_alias_name.map {|fake, real| puts "#{fake} is actually #{real}."}
     break
   else
   	name_maker(name)
+  	#  shove the real name and fake name in the hash
   	true_name_alias_name ["#{@alias}"] = "#{name}"
   end
 }
