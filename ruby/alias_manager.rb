@@ -49,7 +49,8 @@ def name_maker(new_name)
 			if letter == "z"
 				new_alias.push("b")
 			else
-				new_alias.push(consonants.next)
+				new_letter = consonants.index(letter)
+				new_alias.push(consonants[new_letter.next] )
 			end
 		else
 			letter == " "
@@ -64,4 +65,4 @@ end
 
 
 
-p name_maker("u")
+p name_maker("justin wong")
