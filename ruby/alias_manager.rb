@@ -11,7 +11,8 @@
 # first define a method that breaks a name down
 
 def name_splitter(name)
-  # take the name and break it into seperate words, and reverse it into an   array
+  name.downcase!
+  # take the name and break it into seperate words, and reverse it into an array
   new_name = name.split.reverse
   
   # now take them and put them together into a big string, and back
@@ -40,7 +41,8 @@ def name_maker(new_name)
 			if letter == "u"
 				new_alias.push("a")
 			else
-				new_alias.push(vowels.next)
+				new_letter = vowels.index(letter)
+				new_alias.push(vowels[new_letter.next] )
 			end
 		elsif consonants.include?(letter)
 			# in case the letter is 'z', go around to the letter 'b'
@@ -49,16 +51,17 @@ def name_maker(new_name)
 			else
 				new_alias.push(consonants.next)
 			end
+		else
+			letter == " "
+			new_alias.push(" ")
 		end
-	p new_alias
-
-
-
+  # ratchet up the name until the letters are all manipulated
 	index += 1
 	end
-
+#	return new_alias.join("").split(" ").each{|x| print x.capitalize, " "}
+p new_alias
 end	
 
 
 
-p name_maker("justin wong")
+p name_maker("u")
