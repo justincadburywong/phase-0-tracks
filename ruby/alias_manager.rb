@@ -8,15 +8,41 @@
 
 # start by breaking down the process into smaller steps
 
-# takes a string from a user
+# first define a method that breaks a name down
 
-puts "What's your name?"
-name = gets.chomp
-
+def name_splitter(name)
   # take the name and break it into seperate words, and reverse it into an   array
-  p new_name = name.split.reverse
+  new_name = name.split.reverse
   
   # now take them and put them together into a big string, and back
   # into individual strings in an array
-  p new_name.join('').split('')
-   
+  new_name.join('').split('')
+  return new_name
+end
+
+# next, define a method that gets the next 
+# letter on either vowels or consonants
+def name_maker(new_name)
+	# we need a new array for our new name to go into
+	new_alias = []
+	# and a start point
+	index = 0
+	# some variables that hold our vowels and consonants
+	vowels = "aeiou"
+	consonants = "bcdfghjklmnpqrstvwxyz"
+
+	# while loop to iterate though the new_name array and change 
+	# letters as it goes
+	while index < new_name.length
+		letter = new_name[index]
+
+		index += 1
+	end
+
+
+
+
+
+
+
+
