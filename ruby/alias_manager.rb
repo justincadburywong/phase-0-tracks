@@ -14,10 +14,9 @@ puts "What's your name?"
 name = gets.chomp
 
   # take the name and break it into seperate words, and reverse it into an   array
-  p name.split.reverse
+  p new_name = name.split.reverse
   
   # now take them and put them together into a big string, and back
   # into individual strings in an array
-  p name.join('').split('')
-  
-
+  p new_name.join('').split('')
+   
