@@ -10,25 +10,25 @@
 
 # first define a method that breaks a name down
 
-def name_splitter(name)
-  name.downcase!
-  # take the name and break it into seperate words, and reverse it into an array
-  new_name = name.split.reverse
-  
-  # now take them and put them together into a big string, and back
-  # into individual strings in an array
-  new_name.join('').split('')
-  return new_name
-end
+# def name_splitter(name)
+#   
+#   # take the name and break it into seperate words, and reverse it into an array
+#   new_name = name.downcase.split.reverse
+#   
+#   # now take them and put them together into a big string, and back
+#   # into individual strings in an array
+#   new_name.join('').split('')
+#   return new_name
+# end
 
 # next, define a method that gets the next 
 # letter on either vowels or consonants
 def name_maker(new_name)
 	# we need a new array for our new name to go into
-	new_alias = []
+	@new_alias = []
 	# and a start point
 	index = 0
-	# some variables that hold our vowels and consonants
+	# some variables that hold our vowels and consonants for edge cases
 	vowels = "aeiou"
 	consonants = "bcdfghjklmnpqrstvwxyz"
 
@@ -39,30 +39,28 @@ def name_maker(new_name)
 		if vowels.include?(letter)
 			# in case the letter is 'u', go around to the letter 'a'
 			if letter == "u"
-				new_alias.push("a")
+				@new_alias.push("a")
 			else
 				new_letter = vowels.index(letter)
-				new_alias.push(vowels[new_letter.next] )
+				@new_alias.push(vowels[new_letter.next] )
 			end
 		elsif consonants.include?(letter)
 			# in case the letter is 'z', go around to the letter 'b'
 			if letter == "z"
-				new_alias.push("b")
+				@new_alias.push("b")
 			else
 				new_letter = consonants.index(letter)
-				new_alias.push(consonants[new_letter.next] )
+				@new_alias.push(consonants[new_letter.next] )
 			end
 		else
 			letter == " "
-			new_alias.push(" ")
+			@new_alias.push(" ")
 		end
   # ratchet up the name until the letters are all manipulated
 	index += 1
 	end
-#	return new_alias.join("").split(" ").each{|x| print x.capitalize, " "}
-p new_alias
+  # bring it all back together to form a new name
+	return @new_alias.join("").split(" ").each{|x| print x.capitalize, " "}
 end	
 
 
-
-p name_maker("justin wong")
