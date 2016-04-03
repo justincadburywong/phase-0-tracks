@@ -8,20 +8,7 @@
 
 # start by breaking down the process into smaller steps
 
-# first define a method that breaks a name down
-
-# def name_splitter(name)
-#   
-#   # take the name and break it into seperate words, and reverse it into an array
-#   new_name = name.downcase.split.reverse
-#   
-#   # now take them and put them together into a big string, and back
-#   # into individual strings in an array
-#   new_name.join('').split('')
-#   return new_name
-# end
-
-# next, define a method that gets the next 
+# define a method that gets the next 
 # letter on either vowels or consonants
 def name_maker(new_name)
 	# we need a new array for our new name to go into
@@ -60,7 +47,7 @@ def name_maker(new_name)
 	index += 1
 	end
   # bring it all back together to form a new name
-	return @new_alias.join("").split(" ").each{|x| print x.capitalize, " "}
+  @alias = @new_alias.join("").split(" ").each{|x| print x.capitalize, " "}
 end	
 
 
@@ -79,7 +66,6 @@ loop {
     break
   else
   	name_maker(name)
-  	true_name_alias_name ["#{@new_alias}"] = "#{name}"
+  	true_name_alias_name ["#{@alias}"] = "#{name}"
   end
-
 }
