@@ -35,14 +35,30 @@ def name_maker(new_name)
 	# letters as it goes
 	while index < new_name.length
 		letter = new_name[index]
+		if vowels.include?(letter)
+			# in case the letter is 'u', go around to the letter 'a'
+			if letter == "u"
+				new_alias.push("a")
+			else
+				new_alias.push(vowels.next)
+			end
+		elsif consonants.include?(letter)
+			# in case the letter is 'z', go around to the letter 'b'
+			if letter == "z"
+				new_alias.push("b")
+			else
+				new_alias.push(consonants.next)
+			end
+		end
+	p new_alias
 
-		index += 1
+
+
+	index += 1
 	end
 
+end	
 
 
 
-
-
-
-
+p name_maker("justin wong")
