@@ -64,3 +64,22 @@ def name_maker(new_name)
 end	
 
 
+# Use a data structure to store the fake names as they are entered. 
+# When the user exits the program, iterate through the data structure 
+# and print all of the data the user entered. 
+# A sentence like "Vussit Gimodoe is actually Felicia Torres" or 
+# "Felicia Torres is also known as Vussit Gimodoe" for each agent is fine.
+true_name_alias_name = {}
+loop {
+  puts
+  puts "I've got a secret-agent name converter!  What's your name?  Or just type 'quit' to exit"
+  name = gets.chomp.downcase
+  if name == "quit" || name == ""
+    true_name_alias_name.map {|fake, real| puts "#{fake} is actually #{real}."}
+    break
+  else
+  	name_maker(name)
+  	true_name_alias_name ["#{@new_alias}"] = "#{name}"
+  end
+
+}
