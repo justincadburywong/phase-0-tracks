@@ -13,23 +13,11 @@
 puts "What's your name?"
 name = gets.chomp
 
-  # take the name and break it into individual letters
-  name_array = name.split('')
-  
-  #iterate over each vowel and advance it to the next one
-  p name_array.each do  |x == "a" || x == "e" || x == "i" || x == "o" || x == "u"| x.next!
-
-  
-  
   # take the name and break it into seperate words, and reverse it into an   array
-  # p  name.split.reverse
+  p name.split.reverse
   
-  # now take them and put them into an array
-  # p name.each.
+  # now take them and put them together into a big string, and back
+  # into individual strings in an array
+  p name.join('').split('')
   
-  # 
-  # name.each {|vowel| vowel.next}
-  # name
-  # new_name = name.join('')
-  # 
 
