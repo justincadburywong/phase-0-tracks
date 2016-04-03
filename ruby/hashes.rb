@@ -6,7 +6,7 @@ interior_designer = gets.chomp.to_i
 until interior_designer == 0
  #starts an empty hash called client_info
   client_info = {}  
-
+ 
 #ask loop for any info from the client and about their preferences
   puts "What's the name of the client?"
     name = gets.chomp.to_sym
