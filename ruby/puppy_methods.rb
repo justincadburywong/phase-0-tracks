@@ -1,11 +1,13 @@
 # species
-# canus youngus
+# # canus lupus familiaris
 
 # characteristics
-# energy level: 10
-# coordinated: false
-# name: varies
-# color: varies
+# # energy level: 10
+# # coordinated: false
+# # hungry: true
+# # obedient: false
+# # name: varies
+# # color: varies
 
 
 class Puppy
