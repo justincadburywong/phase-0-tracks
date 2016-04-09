@@ -28,13 +28,13 @@ puts
   
 times.times do
 
-    puts "add the thing you need to buy, and the quanity.  for example 'carrots 5'.  type 'done' when finished"
-
-    add_item = gets.chomp.split(" ")
- 
-    food = add_item[0]
-    quantity = add_item[1].to_i
-    grocery_list[food] = quantity
+  puts "add the thing you need to buy:"
+  food = gets.chomp
+  
+  puts "Add the quanity:"
+  quantity = gets.chomp.to_i
+  
+  grocery_list[food] = quantity
 
 end
 
@@ -68,12 +68,13 @@ times.times do
 
   # Method to update the quantity of an item
   # input:
-  puts "which items do you want to update? for example 'carrots 4'"
-  update_item = gets.chomp.split(" ")
+  puts "which item do you want to update?"
+  food = gets.chomp
+  
+  puts "What is the new quantity?"
+  quantity = gets.chomp.to_i
   # steps:
   # updated_grocery_list = {}
-  food = update_item[0]
-  quantity = update_item[1].to_i
   grocery_list[food] = quantity
   # grocery_list.merge!(updated_grocery_list)
   # output:
