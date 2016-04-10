@@ -1,10 +1,10 @@
 class Santa
-	@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
-	@age = 0
-
+	
 	def initialize(gender, ethnicity)
 		@gender = gender
 		@ethnicity = ethnicity
+		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
+		@age = 0
 		print "Initializing Santa instance ..."
 		puts "This santa identifies as a #{@gender} #{@ethnicity}."
 		puts
@@ -15,15 +15,38 @@ class Santa
 	end
 
 	def eat_milk_and_cookies(cookie_type)
-		print "That was a good #{cookie_type}!" 
+		puts "That was a good #{cookie_type}!" 
+	end
+
+	def celebrate_birthday
+		@age += 1
+		puts "Happy birthday!  You're now #{@age} years old!"
+	end
+
+	def get_mad_at(reindeer_name)
+		@reindeer_ranking.delete(reindeer_name)
+		@reindeer_ranking << reindeer_name
+		puts "You've been bad, #{reindeer_name}!  Back of the line!"
+	end
+
+	# getter methods
+	def gender
+		@gender
+	end
+
+	def ethnicity
+		@ethnicity
 	end
 
 
 end
 
-# chris = Santa.new("male", "chinese")
-# chris.speak
-# chris.eat_milk_and_cookies("snickerdoodle")
+chris = Santa.new("male", "thai")
+chris.speak
+chris.eat_milk_and_cookies("snickerdoodle")
+chris.get_mad_at("Vixen")
+chris.celebrate_birthday
+p chris
 
 santas = []
 example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
@@ -33,13 +56,13 @@ example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer n
 # end
 # p santas
 
-loop do
-	puts "press enter to generate a random santa.  type 'done' when finished."
-	response = gets.chomp
-	break if response == "done"
-	# find a random number within the length of the arrays 'example_genders' and 
-	# 'example_ethnicities', and use that as the index to choose which gender and
-	# ethnicity to populate the new santa instance
-	santas=Santa.new(example_genders[rand(example_genders.length)],example_ethnicities[rand(example_ethnicities.length)])
-end
+# loop do
+# 	puts "press enter to generate a random santa.  type 'done' when finished."
+# 	response = gets.chomp
+# 	break if response == "done"
+# 	# find a random number within the length of the arrays 'example_genders' and 
+# 	# 'example_ethnicities', and use that as the index to choose which gender and
+# 	# ethnicity to populate the new santa instance
+# 	santas=Santa.new(example_genders[rand(example_genders.length)],example_ethnicities[rand(example_ethnicities.length)])
+# end
 
