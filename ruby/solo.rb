@@ -37,6 +37,11 @@ class Beer_glass
 			puts "Maybe you should try another beer."
 		end
 	end
+	
+	def summary
+		puts "You had a #{@beer_color} beer filled to level #{@beer_level} that was a #{@beer_drinkability} on a scale of 1 to 10."
+		puts
+	end
 
 end
 
@@ -46,7 +51,7 @@ end
 # p stout.beer_drinkability("yes")
 
 beers = []
-
+i = 0
 loop do
 	puts "Hit enter to let me pour you a beer, or type 'done' to leave."
 	go = gets.chomp
@@ -61,6 +66,7 @@ loop do
 	puts "On a scale of 1 to 10, how drinkable do you like your beer?"
 	@beer_drinkability = gets.chomp
 	
+
 	beers << Beer_glass.new(
 		@beer_level,
 		@beer_color,
@@ -70,10 +76,11 @@ end
 puts "----------"
 puts "Check out all the beers you've had!"
 puts
-beers.each do |x|
-	puts "You had a #{@beer_color} beer filled to level #{@beer_level} that was a #{@beer_drinkability} on a scale of 1 to 10."
-	puts
+
+while i < beers.length
+  beers[i].summary
+  i = i + 1
 end
-	
+
 
 
