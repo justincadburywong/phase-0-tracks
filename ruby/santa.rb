@@ -1,5 +1,7 @@
 class Santa
 	
+	attr_reader :gender, :ethnicity
+
 	def initialize(gender, ethnicity)
 		@gender = gender
 		@ethnicity = ethnicity
@@ -29,14 +31,14 @@ class Santa
 		puts "You've been bad, #{reindeer_name}!  Back of the line!"
 	end
 
-	# getter methods
-	def gender
-		@gender
-	end
+	# # getter methods
+	# def gender
+	# 	@gender
+	# end
 
-	def ethnicity
-		@ethnicity
-	end
+	# def ethnicity
+	# 	@ethnicity
+	# end
 
 
 end
