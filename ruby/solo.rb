@@ -5,3 +5,27 @@
 # and a method that at least talks about the color
 
 
+class Beer_glass
+
+	def initialize
+	end
+
+	def beer_level(i)
+		if i < 10, 
+			puts "Your beer is getting low, better get another!"
+		else
+			puts "You've got a full glass of beer!"
+		end
+	end
+
+	def beer_color(color)
+		puts "That beer has a beautiful #{color} color!"
+	end
+
+	def beer_drinkability(i)
+		if i < 10
+			puts "That's a delicous beer"
+		end
+	end
+
+end
