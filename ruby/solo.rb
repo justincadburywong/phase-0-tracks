@@ -55,13 +55,13 @@ loop do
 	break if go == "done"
 	
 	puts "On a scale of 1 to 10, how full do you want your glass?"
-	@beer_level = gets.chomp
+	@beer_level = gets.chomp.to_i
 	
 	puts "What color beer do you like to drink?"
 	@beer_color = gets.chomp.to_s
 	
 	puts "On a scale of 1 to 10, how drinkable do you like your beer?"
-	@rating = gets.chomp
+	@rating = gets.chomp.to_i
 	
 
 	beers << Beer_glass.new(
@@ -71,7 +71,7 @@ loop do
 		)
 end
 puts "----------"
-puts "Check out all the beers you've had!"
+puts "You've had #{beers.length} beers!"
 puts
 
 while i < beers.length
