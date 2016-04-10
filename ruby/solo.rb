@@ -7,14 +7,16 @@
 
 class Beer_glass
 
-	def initialize
+	def initialize(level)
+		@beer_level = level
+
 	end
 
 	def beer_level(i)
-		if i < 10, 
-			puts "Your beer is getting low, better get another!"
+		if i < 10
+			puts "Your beer is getting low, better get another soon!"
 		else
-			puts "You've got a full glass of beer!"
+			puts "You've got a full glass of beer!  Enjoy!"
 		end
 	end
 
@@ -29,3 +31,7 @@ class Beer_glass
 	end
 
 end
+
+p stout = Beer_glass.new(10)
+
+
