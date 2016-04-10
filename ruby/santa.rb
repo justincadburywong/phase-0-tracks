@@ -8,7 +8,7 @@ class Santa
 		@ethnicity = ethnicity
 		@name = name
 		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
-		@age = 0
+		@age = age
 		print "Initializing Santa instance ..."
 		puts "This santa is a #{@age} year old named #{@name} and identifies as a #{@gender} #{@ethnicity}."
 		puts
@@ -66,14 +66,13 @@ loop do
 	puts "press enter to generate a random santa.  type 'done' when finished."
 	response = gets.chomp
 	break if response == "done"
-	# find a random number within the length of the arrays 'example_genders' and 
-	# 'example_ethnicities', and use that as the index to choose which gender and
-	# ethnicity to populate the new santa instance
+
+
 	santas = Santa.new(
-		example_genders[rand(example_genders.length)],
-		example_ethnicities[rand(example_ethnicities.length)],
-		example_names[rand(example_names.length)],
-		@age = rand(0..140)
+		example_genders.sample,
+		example_ethnicities.sample,
+		example_names.sample,
+		rand(0..140)
 	)
 end
 
