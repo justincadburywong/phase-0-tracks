@@ -24,14 +24,19 @@ class Beer_glass
 		puts "That beer has a beautiful #{color} color!"
 	end
 
-	def beer_drinkability(i)
-		if i < 10
-			puts "That's a delicous beer"
+	def beer_drinkability(string)
+		if string == "yes"
+			puts "That's a delicous beer!"
+		else
+			puts "Maybe you should try another beer."
 		end
 	end
 
 end
 
 p stout = Beer_glass.new(10)
+p stout.beer_color("chocolate")
+p stout.beer_level(9)
+p stout.beer_drinkability("yes")
 
 
