@@ -18,7 +18,7 @@ class Beer_glass
 		@rating = rating
 	end
 
-	def beer_level(number)
+	def fill(number)
 		if number < 10
 			puts "Your beer is getting low, better get another soon!"
 		else
@@ -26,11 +26,11 @@ class Beer_glass
 		end
 	end
 
-	def beer_color(color)
+	def description(color)
 		puts "That beer has a beautiful #{color} color!"
 	end
 
-	def rating(value)
+	def flavor(value)
 		if value == 10
 			puts "That's a delicous beer!"
 		else
@@ -69,6 +69,7 @@ loop do
 		@beer_color,
 		@rating
 		)
+
 end
 puts "----------"
 puts "You've had #{beers.length} beers!"
@@ -78,6 +79,3 @@ while i < beers.length
   beers[i].summary
   i = i + 1
 end
-
-
-
