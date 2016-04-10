@@ -10,7 +10,7 @@ class Beer_glass
 	attr_accessor :level, :drinkability
 
 
-	def initialize(beer_level)
+	def initialize(beer_level, beer_color)
 		@beer_level = level
 
 	end
@@ -45,12 +45,26 @@ end
 beers = []
 
 loop do
-	puts "Let me pour you a beer!  What color should it be?  Or type 'exit' to leave."
-	color = gets.chomp
-	break if color == "exit"
-	beers << Beer_glass.new
+	puts "Let me pour you a beer, or type 'exit' to leave."
+	go = gets.chomp
+	break if go == "exit"
 	
+	puts "On a scale of 1 to 10, how full do you want your glass?"
+	@beer_level = gets.chomp.to_i
+	
+	puts "What color beer do you like to drink?"
+	@beer_color = gets.chomp.to_s
+	
+	puts "On a scale of 1 to 10, how drinkable do you like your beer?"
+	@beer_drinkability = gets.chomp
+	
+	beers << Beer_glass.new(
+		@beer_level,
+		@beer_color
+		)
 end
-
+puts "----------"
+puts "Check out all the beers you've had!"
+puts beers[0]
 
 
