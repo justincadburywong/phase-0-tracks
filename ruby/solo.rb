@@ -37,9 +37,20 @@ class Beer_glass
 
 end
 
-p stout = Beer_glass.new(10)
-p stout.beer_level(10)
-p stout.beer_color("chocolate")
-p stout.beer_drinkability("yes")
+# p stout = Beer_glass.new(10)
+# p stout.beer_level(10)
+# p stout.beer_color("chocolate")
+# p stout.beer_drinkability("yes")
+
+beers = []
+
+loop do
+	puts "Let me pour you a beer!  What color should it be?  Or type 'exit' to leave."
+	color = gets.chomp
+	break if color == "exit"
+	beers << Beer_glass.new
+	
+end
+
 
 
