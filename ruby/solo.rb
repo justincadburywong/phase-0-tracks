@@ -10,9 +10,10 @@ class Beer_glass
 	attr_accessor :level, :drinkability
 
 
-	def initialize(beer_level, beer_color)
+	def initialize(beer_level, beer_color, beer_drinkability)
 		@beer_level = level
-
+		@beer_color = beer_color
+		@beer_drinkability = beer_drinkability
 	end
 
 	def beer_level(i)
@@ -60,11 +61,15 @@ loop do
 	
 	beers << Beer_glass.new(
 		@beer_level,
-		@beer_color
+		@beer_color,
+		@beer_drinkability
 		)
 end
 puts "----------"
 puts "Check out all the beers you've had!"
-puts beers[0]
+beers.each do |x|
+	puts x
+end
+	
 
 
