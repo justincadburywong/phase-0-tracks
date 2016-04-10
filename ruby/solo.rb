@@ -11,6 +11,8 @@ class Beer_glass
 
 
 	def initialize(beer_level, beer_color, beer_drinkability)
+		puts "Filling a glass.."
+		puts
 		@beer_level = level
 		@beer_color = beer_color
 		@beer_drinkability = beer_drinkability
@@ -46,12 +48,12 @@ end
 beers = []
 
 loop do
-	puts "Let me pour you a beer, or type 'exit' to leave."
+	puts "Hit enter to let me pour you a beer, or type 'done' to leave."
 	go = gets.chomp
-	break if go == "exit"
+	break if go == "done"
 	
 	puts "On a scale of 1 to 10, how full do you want your glass?"
-	@beer_level = gets.chomp.to_i
+	@beer_level = gets.chomp
 	
 	puts "What color beer do you like to drink?"
 	@beer_color = gets.chomp.to_s
@@ -70,6 +72,7 @@ puts "Check out all the beers you've had!"
 puts
 beers.each do |x|
 	puts "You had a #{@beer_color} beer filled to level #{@beer_level} that was a #{@beer_drinkability} on a scale of 1 to 10."
+	puts
 end
 	
 
