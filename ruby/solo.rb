@@ -7,19 +7,19 @@
 
 class Beer_glass
 	attr_reader :color
-	attr_accessor :level, :drinkability
+	attr_accessor :level, :rating
 
 
-	def initialize(beer_level, beer_color, beer_drinkability)
+	def initialize(beer_level, beer_color, rating)
 		puts "Filling a glass.."
 		puts
 		@beer_level = level
 		@beer_color = beer_color
-		@beer_drinkability = beer_drinkability
+		@rating = rating
 	end
 
-	def beer_level(i)
-		if i < 10
+	def beer_level(number)
+		if number < 10
 			puts "Your beer is getting low, better get another soon!"
 		else
 			puts "You've got a full glass of beer!  Enjoy!"
@@ -30,8 +30,8 @@ class Beer_glass
 		puts "That beer has a beautiful #{color} color!"
 	end
 
-	def beer_drinkability(string)
-		if string == "yes"
+	def rating(value)
+		if value == 10
 			puts "That's a delicous beer!"
 		else
 			puts "Maybe you should try another beer."
@@ -39,16 +39,13 @@ class Beer_glass
 	end
 	
 	def summary
-		puts "You had a #{@beer_color} beer filled to level #{@beer_level} that was a #{@beer_drinkability} on a scale of 1 to 10."
+		puts "You had a #{@beer_color} beer filled to level #{@beer_level} that was a #{@rating} on a scale of 1 to 10."
 		puts
 	end
 
 end
 
-# p stout = Beer_glass.new(10)
-# p stout.beer_level(10)
-# p stout.beer_color("chocolate")
-# p stout.beer_drinkability("yes")
+# p stout = Beer_glass.new(10, "chocolate", 9)
 
 beers = []
 i = 0
@@ -64,13 +61,13 @@ loop do
 	@beer_color = gets.chomp.to_s
 	
 	puts "On a scale of 1 to 10, how drinkable do you like your beer?"
-	@beer_drinkability = gets.chomp
+	@rating = gets.chomp
 	
 
 	beers << Beer_glass.new(
 		@beer_level,
 		@beer_color,
-		@beer_drinkability
+		@rating
 		)
 end
 puts "----------"
