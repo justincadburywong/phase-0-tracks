@@ -67,8 +67,9 @@ loop do
 end
 puts "----------"
 puts "Check out all the beers you've had!"
+puts
 beers.each do |x|
-	puts x
+	puts "You had a #{@beer_color} beer filled to level #{@beer_level} that was a #{@beer_drinkability} on a scale of 1 to 10."
 end
 	
 
