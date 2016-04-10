@@ -6,8 +6,11 @@
 
 
 class Beer_glass
+	attr_reader :color
+	attr_accessor :level, :drinkability
 
-	def initialize(level)
+
+	def initialize(beer_level)
 		@beer_level = level
 
 	end
@@ -35,8 +38,8 @@ class Beer_glass
 end
 
 p stout = Beer_glass.new(10)
+p stout.beer_level(10)
 p stout.beer_color("chocolate")
-p stout.beer_level(9)
 p stout.beer_drinkability("yes")
 
 
