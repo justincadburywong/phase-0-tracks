@@ -10,7 +10,7 @@ class Beer_glass
 	attr_accessor :level, :rating
 
 
-	def initialize(beer_level, beer_color, rating)
+	def initialize(level, beer_color, rating)
 		puts "Filling a glass.."
 		puts
 		@beer_level = level
