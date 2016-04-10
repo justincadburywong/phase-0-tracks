@@ -37,8 +37,9 @@ loop do
 	puts "press enter to generate a random santa.  type 'done' when finished."
 	response = gets.chomp
 	break if response == "done"
-	genders_length=example_genders.length
-	ethnicities_length=example_ethnicities.length
-	santas=Santa.new(example_genders[rand(genders_length)],example_ethnicities[rand(ethnicities_length)])
+	# find a random number within the length of the arrays 'example_genders' and 
+	# 'example_ethnicities', and use that as the index to choose which gender and
+	# ethnicity to populate the new santa instance
+	santas=Santa.new(example_genders[rand(example_genders.length)],example_ethnicities[rand(example_ethnicities.length)])
 end
 
