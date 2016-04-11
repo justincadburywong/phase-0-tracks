@@ -16,6 +16,7 @@ class Beer_glass
 		@beer_level = level
 		@beer_color = beer_color
 		@rating = rating
+
 	end
 
 	def fill(number)
@@ -39,7 +40,7 @@ class Beer_glass
 	end
 	
 	def summary
-		puts "You had a #{@beer_color} beer filled to level #{@beer_level} that was a #{@rating} on a scale of 1 to 10."
+		puts "You had a #{@beer_color} beer filled to level #{@beer_level} that you felt was a #{@rating} on a scale of 1 to 10."
 		puts
 	end
 
@@ -56,7 +57,7 @@ loop do
 	
 	puts "On a scale of 1 to 10, how full do you want your glass?"
 	@beer_level = gets.chomp.to_i
-	
+
 	puts "What color beer do you like to drink?"
 	@beer_color = gets.chomp.to_s
 	
@@ -70,6 +71,11 @@ loop do
 		@rating
 		)
 
+	# beers.fill(beers[0])
+	# beers.description(beers[1])
+	# beers.flavor(beers[2])
+	
+
 end
 puts "----------"
 puts "You've had #{beers.length} beers!"
@@ -79,3 +85,5 @@ while i < beers.length
   beers[i].summary
   i = i + 1
 end
+
+puts "Now go home, you're done!"
