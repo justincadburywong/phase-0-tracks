@@ -16,9 +16,10 @@ class Beer_glass
 		@beer_level = level
 		@beer_color = beer_color
 		@rating = rating
+
 	end
 
-	def beer_level(number)
+	def fill(number)
 		if number < 10
 			puts "Your beer is getting low, better get another soon!"
 		else
@@ -26,11 +27,11 @@ class Beer_glass
 		end
 	end
 
-	def beer_color(color)
+	def description(color)
 		puts "That beer has a beautiful #{color} color!"
 	end
 
-	def rating(value)
+	def flavor(value)
 		if value == 10
 			puts "That's a delicous beer!"
 		else
@@ -39,12 +40,13 @@ class Beer_glass
 	end
 	
 	def summary
-		puts "You had a #{@beer_color} beer filled to level #{@beer_level} that was a #{@rating} on a scale of 1 to 10."
+		puts "You had a #{@beer_color} beer filled to level #{@beer_level} that tasted like a #{@rating} out of 10."
 		puts
 	end
 
 end
 
+# driver code
 # p stout = Beer_glass.new(10, "chocolate", 9)
 
 beers = []
@@ -56,11 +58,11 @@ loop do
 	
 	puts "On a scale of 1 to 10, how full do you want your glass?"
 	@beer_level = gets.chomp.to_i
-	
+
 	puts "What color beer do you like to drink?"
 	@beer_color = gets.chomp.to_s
 	
-	puts "On a scale of 1 to 10, how drinkable do you like your beer?"
+	puts "On a scale of 1 to 10, how delicious should this beer be?"
 	@rating = gets.chomp.to_i
 	
 
@@ -69,6 +71,17 @@ loop do
 		@beer_color,
 		@rating
 		)
+# this part i can't figure out.  i want it to run my methods after each 
+# new instance, or glass, which gives it descriptions about the beer 
+# that was just poured.  I can't seem to get them to work because of
+# an undefined method for the array... is it because my instance methods
+# don't work on an array?  or is it because i didn't change their scope?
+
+	# beers.fill(beers[0])
+	# beers.description(beers[1])
+	# beers.flavor(beers[2])
+	
+
 end
 puts "----------"
 puts "You've had #{beers.length} beers!"
@@ -79,5 +92,4 @@ while i < beers.length
   i = i + 1
 end
 
-
-
+puts "Now go home, you're done!"
