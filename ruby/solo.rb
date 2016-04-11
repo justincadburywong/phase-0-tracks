@@ -46,6 +46,7 @@ class Beer_glass
 
 end
 
+# driver code
 # p stout = Beer_glass.new(10, "chocolate", 9)
 
 beers = []
@@ -70,6 +71,11 @@ loop do
 		@beer_color,
 		@rating
 		)
+# this part i can't figure out.  i want it to run my methods after each 
+# new instance, or glass, which gives it descriptions about the beer 
+# that was just poured.  I can't seem to get them to work because of
+# an undefined method for the array... is it because my instance methods
+# don't work on an array?  or is it because i didn't change their scope?
 
 	# beers.fill(beers[0])
 	# beers.description(beers[1])
