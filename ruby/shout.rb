@@ -17,3 +17,18 @@ module Shout
 		puts "Hold it right there #{name}!!"
 	end
 end
+
+class Cop
+	include Shout
+end
+
+class Angry_mom
+	include Shout
+end
+
+officer = Cop.new
+officer.alert("criminal!")
+
+mom = Angry_mom.new
+mom.alert("young man!")
+
