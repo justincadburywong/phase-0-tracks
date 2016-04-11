@@ -61,7 +61,7 @@ loop do
 	puts "What color beer do you like to drink?"
 	@beer_color = gets.chomp.to_s
 	
-	puts "On a scale of 1 to 10, how drinkable do you like your beer?"
+	puts "On a scale of 1 to 10, how delicious should this beer be?"
 	@rating = gets.chomp.to_i
 	
 
