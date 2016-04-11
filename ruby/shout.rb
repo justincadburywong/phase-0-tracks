@@ -4,6 +4,9 @@ module Shout
 	end
 
 	def self.yelling_happily(words)
-		"I can't contain myself!!" + words + "!!!" + ":):):):)"
+		"I can't contain myself!!  " + words + "!!!" + "  :):):):)"
 	end
 end
+
+puts Shout.yell_angrily("No way!!  I can't take this anymore!")
+puts Shout.yelling_happily("I can't believe this worked")
