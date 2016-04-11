@@ -78,9 +78,9 @@ loop do
 # an undefined method for the array... is it because my instance methods
 # don't work on an array?  or is it because i didn't change their scope?
 
-	beers.fill(beers[0])  #run the method 'fills' on instance 'beers' with parameter 'index 0' of 'beers'
-	beers.description(beers[1])
-	beers.flavor(beers[2])
+	# beers.fill(beers[0])  #run the method 'fills' on instance 'beers' with parameter 'index 0' of 'beers'
+	# beers.description(beers[1])
+	# beers.flavor(beers[2])
 	
 
 end
