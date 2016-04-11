@@ -40,7 +40,7 @@ class Beer_glass
 	end
 	
 	def summary
-		puts "You had a #{@beer_color} beer filled to level #{@beer_level} that you felt was a #{@rating} on a scale of 1 to 10."
+		puts "You had a #{@beer_color} beer filled to level #{@beer_level} that tasted like a #{@rating} out of 10."
 		puts
 	end
 
