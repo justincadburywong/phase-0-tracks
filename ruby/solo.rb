@@ -71,15 +71,16 @@ loop do
 		@beer_color,
 		@rating
 		)
+	
 # this part i can't figure out.  i want it to run my methods after each 
 # new instance, or glass, which gives it descriptions about the beer 
 # that was just poured.  I can't seem to get them to work because of
 # an undefined method for the array... is it because my instance methods
 # don't work on an array?  or is it because i didn't change their scope?
 
-	# beers.fill(beers[0])
-	# beers.description(beers[1])
-	# beers.flavor(beers[2])
+	beers.fill(beers[0])  #run the method 'fills' on instance 'beers' with parameter 'index 0' of 'beers'
+	beers.description(beers[1])
+	beers.flavor(beers[2])
 	
 
 end
