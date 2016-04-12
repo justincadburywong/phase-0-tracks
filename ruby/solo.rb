@@ -4,7 +4,6 @@
 # i can have a method that checks the beer_level while it's being drunk, so give it a current state
 # and a method that at least talks about the color
 
-
 class Beer_glass
 	attr_reader :color
 	attr_accessor :level, :rating
