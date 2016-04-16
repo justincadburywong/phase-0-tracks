@@ -11,10 +11,7 @@ console.log(names)
 
 
 // var blue = colors[0]
-// console.log(colored
-
-
-Horses.colors[0] = names[0])
+// console.log(coloredHorses.colors[0] = names[0])
 // console.log(coloredHorses.colors = "names");
 // 
 
@@ -33,7 +30,38 @@ for(var i=0; i<names.length; i++){
 console.log(coloredHorses);
 
 
-function Car(model, year, topSpeed) {
+
+////////////////////////////////////////
+
+function Car(make, model, year, topSpeed) {
   // In this context, 'this' refers to 
   // the individual dog we're making
   console.log("Drive our car!!!!", this)
+  
+  
+    // Therefore, this.name is sort of the Ruby
+  // equivalent of @name
+  this.make = make;
+  this.model = model;
+  this.year = year;
+  this.topSpeed = topSpeed;
+  
+  this.honk = function() { console.log("Beep!"); };
+} 
+  
+  
+var honda = new Car("honda", "accord", 2015, 120)
+console.log(honda)
+
+
+honda.honk();
+  
+//     // As for behavior, a function is a perfectly 
+//   // valid property value ... whoa!
+//   this.bark = function() { console.log("Woof!"); };
+  
+//   console.log("DOG INITIALIZATION COMPLETE");
+
+  
+  
+  
