@@ -47,6 +47,7 @@ function Car(make, model, year, topSpeed) {
   this.topSpeed = topSpeed;
   
   this.honk = function() { console.log("Beep!"); };
+  this.crash = function() { console.log("Screech!!  *Bang!!*");};
 } 
   
   
@@ -62,6 +63,8 @@ honda.honk();
   
 //   console.log("DOG INITIALIZATION COMPLETE");
 
-  
-  
+var truck = new Car("toyota", "pickup", 1993, 108)
+console.log(truck)
+truck.honk();
+truck.crash();
   
