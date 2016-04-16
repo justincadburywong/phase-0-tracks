@@ -11,7 +11,10 @@ console.log(names)
 
 
 // var blue = colors[0]
-// console.log(coloredHorses.colors[0] = names[0])
+// console.log(colored
+
+
+Horses.colors[0] = names[0])
 // console.log(coloredHorses.colors = "names");
 // 
 
@@ -28,3 +31,9 @@ for(var i=0; i<names.length; i++){
 
 }
 console.log(coloredHorses);
+
+
+function Car(model, year, topSpeed) {
+  // In this context, 'this' refers to 
+  // the individual dog we're making
+  console.log("Drive our car!!!!", this)
