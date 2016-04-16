@@ -64,7 +64,8 @@ honda.honk();
 //   console.log("DOG INITIALIZATION COMPLETE");
 
 var truck = new Car("toyota", "pickup", 1993, 108)
-console.log(truck)
+console.log(truck.make)
+console.log(truck.model)
 truck.honk();
 truck.crash();
   
