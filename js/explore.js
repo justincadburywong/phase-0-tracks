@@ -9,4 +9,5 @@ function reverse(str) {
 	return str.split('').reverse().join("");
 }
 
-console.log(reverse("i want this to work out!"));
+newString = reverse("i want this to work out!");
+
