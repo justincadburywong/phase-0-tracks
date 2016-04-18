@@ -5,12 +5,13 @@
 // make sure to console.log(the variable =reverse(with a parameter!))
 // add lots of ())();););(;(;(;);)) 
 
-
 function reverse(str) {
 	return str.split('').reverse().join('');
 }
 
 newString = reverse("i want this to work out!");
+
+// i tried this, but i don' t have the syntax just right..
 
 // for(var i = 0; i < 1; i++) {
 // 	console.log(newString);
