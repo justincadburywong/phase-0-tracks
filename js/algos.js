@@ -56,6 +56,13 @@ find out if the first key or value equals the second
 if they do, return true
 otherwise, return false
 
+
+i wanted it to compare the key or the value, and based on that 
+evaluate whether they were they same or not.
+
+in my first bit of code, i kept getting 'true' because it was only evaluating
+the key 'name', which is true.  i added code to evaluate the value, but i'm
+not getting the result i wanted.
 */
 
 function compare(object1, object2) {
@@ -80,4 +87,24 @@ console.log(compare(firstHash, secondHash))
 console.log(compare(firstHash, thirdHash))
 console.log(compare(secondHash, thirdHash))
 
+
+
+
+/*
+Write a function that takes an integer for length, and builds and 
+returns an array of strings of the given length. So if we ran your 
+function with an argument of 3, we would get an array of 3 random 
+words back (the words don't have to be actual sensical English words
+ -- "nnnnfph" totally counts). The words should be of randomly varying 
+ length, with a minimum of 1 letter and a maximum of 10 letters. (This 
+ involves a new trick, generating a random number, that you'll have to 
+ look up, but the solution on how to do so is relatively straightforward.)
+
+define a funtion that takes a number
+
+
+*/
+Add driver code that does the following 10 times: generates an array, 
+prints the array, feeds the array to your "longest word" function, and 
+prints the result.
 
