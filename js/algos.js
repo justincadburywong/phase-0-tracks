@@ -17,6 +17,14 @@ continue iterating over the array until the longest word is in the empty variabl
 print the empty variable
 */
 
-
+function searchLongest(array) {
+var longestWord = "";
+  for (i = 0; i < array.length; i++) {
+    if (array[i].length > longestWord.length ) {
+      longestWord = array[i];
+    }
+  }
+  return longestWord
+}
 
 // Add driver code that tests your function on a few arrays.
