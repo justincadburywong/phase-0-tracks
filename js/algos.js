@@ -28,3 +28,5 @@ var longestWord = "";
 }
 
 // Add driver code that tests your function on a few arrays.
+
+console.log(searchLongest["witbier", "stout", "IPA", "Barrel aged sour porter", "altbier", "american pale ale", "baltic white", "american lager"])
