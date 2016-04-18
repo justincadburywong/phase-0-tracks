@@ -51,10 +51,20 @@ actually understand!
 
 
 
+declare the funtion that would take two objects as parameters
+find out if the first key or value equals the second
+if they do, return true
+otherwise, return false
+
 */
 
-
-
+function compare(object1, object2) {
+	if (object1.key === object2.key || object1.value === object2.value){
+		return true
+	} else {
+		return false
+	}
+}
 
 // Add some driver code that tests both outcomes of your function.
 
