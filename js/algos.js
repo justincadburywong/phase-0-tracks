@@ -59,14 +59,25 @@ otherwise, return false
 */
 
 function compare(object1, object2) {
-	if (object1.key === object2.key || object1.value === object2.value){
-		return true
-	} else {
-		return false
+	for (var key in object1) {
+		for (var value in object1) {
+			if (object1[key] == object2[key] || object1[value] == object2[value]){
+				return true
+			} else {
+				return false
+			}
+		}
 	}
 }
 
 // Add some driver code that tests both outcomes of your function.
 
+firstHash = {name: "steven", age: 54}
+secondHash = {name: "Tamir", age: 54}
+thirdHash = {name: "steven", age: 64}
+
+console.log(compare(firstHash, secondHash))
+console.log(compare(firstHash, thirdHash))
+console.log(compare(secondHash, thirdHash))
 
 
