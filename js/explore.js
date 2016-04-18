@@ -11,3 +11,7 @@ function reverse(str) {
 
 newString = reverse("i want this to work out!");
 
+for(var i=0; i==1;) {
+	console.log(newString);
+}
+i==1
