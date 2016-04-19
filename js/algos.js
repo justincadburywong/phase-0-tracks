@@ -61,18 +61,19 @@ i wanted it to compare the key or the value, and based on that
 evaluate whether they were they same or not.
 
 in my first bit of code, i kept getting 'true' because it was only evaluating
-the key 'name', which is true.  i added code to evaluate the value, but i'm
-not getting the result i wanted.
+the key 'name', which is true for every circumstance (everybody had a key 
+called :name).  i added code to evaluate the value, but i'm not getting 
+the result i wanted.  i think this is because i need to compare if the keys are
+the same, and if the values are the same to evaluate to true, otherwise
+it should evaluate to false...  once more.
 */
 
 function compare(object1, object2) {
-	for (var key in object1) {
-		for (var value in object1) {
-			if (object1[key] == object2[key] || object1[value] == object2[value]){
-				return true
-			} else {
-				return false
-			}
+	for (var value in object1) {
+		 if (object1[value] === object2[value]){
+			return true
+		} else {
+			return false	
 		}
 	}
 }
@@ -104,7 +105,12 @@ define a funtion that takes a number
 
 
 */
+
+/*
 Add driver code that does the following 10 times: generates an array, 
 prints the array, feeds the array to your "longest word" function, and 
 prints the result.
+*/
+
+
 
