@@ -82,18 +82,21 @@ function compare(object1, object2) {
 		}
 	}
 }
+
+
+
+this second try made more sense to me if i set a variable as false, then if
+the function of comparing keys evaluated to true, to set the value to true,
+would return true.
 */
 function compare(object1, object2){
-	for (var key1 in object1) {
-		for (var key2 in object2) {
-			if (object1[key1] === object2[key2]){
-				return true;
-			}else{
-				return false;
-			}
+	var theSame = false;
+	for (var key in object1) {
+		if (object1[key] == object2[key]){
+			var theSame = true;
 		}
 	}
-
+	return theSame
 }
 
 // Add some driver code that tests both outcomes of your function.
