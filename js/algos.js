@@ -56,18 +56,47 @@ find out if the first key or value equals the second
 if they do, return true
 otherwise, return false
 
+
+i wanted it to compare the key or the value, and based on that 
+evaluate whether they were they same or not.
+
+in my first bit of code, i kept getting 'true' because it was only evaluating
+the key 'name', which is true for every circumstance (everybody had a key 
+called :name).  i added code to evaluate the value, but i'm not getting 
+the result i wanted.  i think this is because i need to compare if the keys are
+the same, and if the values are the same to evaluate to true, otherwise
+it should evaluate to false...  once more.
 */
 
+/*
 function compare(object1, object2) {
 	for (var key in object1) {
-		for (var value in object1) {
-			if (object1[key] == object2[key] || object1[value] == object2[value]){
-				return true
-			} else {
-				return false
+		 if (object1[key] === object2[key]){
+		 	for (var value in object1) {
+		 		if (object1[value] === object2[value]){
+					return true
+				} else {
+					return false	
+				}
 			}
 		}
 	}
+}
+
+
+
+this second try made more sense to me if i set a variable as false, then if
+the function of comparing keys evaluated to true, to set the value to true,
+would return true.
+*/
+function compare(object1, object2){
+	var theSame = false;
+	for (var key in object1) {
+		if (object1[key] == object2[key]){
+			var theSame = true;
+		}
+	}
+	return theSame
 }
 
 // Add some driver code that tests both outcomes of your function.
@@ -79,5 +108,30 @@ thirdHash = {name: "steven", age: 64}
 console.log(compare(firstHash, secondHash))
 console.log(compare(firstHash, thirdHash))
 console.log(compare(secondHash, thirdHash))
+
+
+
+
+/*
+Write a function that takes an integer for length, and builds and 
+returns an array of strings of the given length. So if we ran your 
+function with an argument of 3, we would get an array of 3 random 
+words back (the words don't have to be actual sensical English words
+ -- "nnnnfph" totally counts). The words should be of randomly varying 
+ length, with a minimum of 1 letter and a maximum of 10 letters. (This 
+ involves a new trick, generating a random number, that you'll have to 
+ look up, but the solution on how to do so is relatively straightforward.)
+
+define a funtion that takes a number
+
+
+*/
+
+/*
+Add driver code that does the following 10 times: generates an array, 
+prints the array, feeds the array to your "longest word" function, and 
+prints the result.
+*/
+
 
 
