@@ -68,6 +68,7 @@ the same, and if the values are the same to evaluate to true, otherwise
 it should evaluate to false...  once more.
 */
 
+/*
 function compare(object1, object2) {
 	for (var key in object1) {
 		 if (object1[key] === object2[key]){
@@ -80,6 +81,19 @@ function compare(object1, object2) {
 			}
 		}
 	}
+}
+*/
+function compare(object1, object2){
+	for (var key1 in object1) {
+		for (var key2 in object2) {
+			if (object1[key1] === object2[key2]){
+				return true;
+			}else{
+				return false;
+			}
+		}
+	}
+
 }
 
 // Add some driver code that tests both outcomes of your function.
