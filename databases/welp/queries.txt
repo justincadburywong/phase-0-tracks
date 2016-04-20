@@ -1,0 +1,21 @@
+8.4 Many to Many Relationshps
+
+Release 2:
+
+JOIN THREE TABLES
+SELECT stars, comment, name, first_name, last_name
+   ...> FROM reviews
+   ...> JOIN businesses
+   ...> ON reviews.business_id = Businesses.id
+   ...> JOIN users
+   ...> ON reviews.user_id = Users.id
+   ...> ;
+
+JOIN THREE TABLE, DISPLAY FOR ONE ATTRIBUTE 
+SELECT stars, comment, name, first_name, last_name
+   ...> FROM reviews
+   ...> JOIN businesses
+   ...> ON reviews.business_id = Businesses.id
+   ...> JOIN users
+   ...> ON reviews.user_id = Users.id
+   ...> WHERE business_id = 1
