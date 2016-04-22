@@ -7,7 +7,21 @@
 # let's not get into that...)
 
 #require gems
-requre 'sqlite3'
+require 'sqlite3'
 
 # create a database
 beer_db = SQLite3::Database.new("beer-log.db")
+
+#create a table within the database
+create_table_cmd = <<-SQLSTUFF
+	CREATE TABLE IF NOT EXISTS beers_drank(
+	id INTEGER PRIMARY KEY,
+	name VARCHAR(255),
+	brewery VARCHAR(255),
+	abv INT,
+	rating INT
+	)
+	SQLSTUFF
+
+
+beer_db.execute(create_table_cmd)
