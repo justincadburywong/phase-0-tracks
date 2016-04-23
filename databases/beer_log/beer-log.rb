@@ -34,4 +34,23 @@ def add_beer(db, name, brewery, abv, rating)
 end
 
 # driver code to test population of beer array within database
-add_beer(beer_db, "chocolate stout", "high water brewing company", 5, 9)
+# add_beer(beer_db, "chocolate stout", "high water brewing company", 5, 9)
+
+#display all beers drankedt
+
+display_beer = <<-MORESQL
+	SELECT * FROM beers_drank
+	MORESQL
+	
+# driver code to display list
+print beer_db.execute(display_beer)
+
+# update rating
+
+
+
+
+
+
+
+
