@@ -102,6 +102,7 @@ loop do
 	puts "Do you want to view your updated log?  You can view the sorted log by typing 'brewery', 'name', 'abv', or 'rating'.  Type 'no' to exit."
 	view = gets.chomp
 	break if view == "no"
+	#include a 'yes' answer to view the ranked log
 		if view == "brewery"
 			new_list = beer_db.execute(sort_brewery)
 			new_list.each do |thing|
@@ -118,7 +119,10 @@ loop do
 				puts "Coming in at #{thing['abv']}% was the '#{thing['name']}' from #{thing['brewery']}.  You gave it a #{thing['rating']}."
 			end
 		elsif view == "rating"
-			puts beer_db.execute(sort_rating)
+			new_list = beer_db.execute(sort_rating)
+			new_list.each do |thing|
+				puts "Given a rating of #{thing['rating']}, the #{thing['abv']}% '#{thing['name']}' by #{thing['brewery']}."
+			end
 		else 
 			puts "I didn't understand that... "
 		end
