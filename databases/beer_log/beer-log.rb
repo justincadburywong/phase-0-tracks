@@ -83,9 +83,9 @@ first_list.each do |thing|
 	puts "Beer ##{thing['id']}.  You had a #{thing['name']} from #{thing['brewery']} at #{thing['abv']}%.  You rated it a #{thing['rating']}."
 end
 loop do
-	puts "Are you ready to add a beer? (y/n)"
+	puts "Are you ready to add a beer? (yes/no)"
 	new_beer = gets.chomp
-	break if new_beer == "n"
+	break if new_beer == "no"
 	puts "What is the brewery that made the beer?"
 	brewery = gets.chomp
 	puts "What is the beer called?"
@@ -103,8 +103,17 @@ loop do
 	view = gets.chomp
 	break if view == "no"
 		if view == "brewery"
-			puts 
+			puts beer_db.execute(sort_brewery)
+		elsif view == "name"
+			puts beer_db.execute(sort_name)
+		elsif view == "abv"
+			puts beer_db.execute(sort_abv)
+		elsif view == "rating"
+			puts beer_db.execute(sort_rating)
+		else 
+			puts "I didn't understand that... "
+		end
 
 end
 
-puts "Thanks for logging your beers.  Check back later to see them grow!"
+puts "Thanks for logging your beers.  Check back later to see them all!"
