@@ -82,3 +82,29 @@ first_list = beer_db.execute(display_beer)
 first_list.each do |thing|
 	puts "Beer ##{thing['id']}.  You had a #{thing['name']} from #{thing['brewery']} at #{thing['abv']}%.  You rated it a #{thing['rating']}."
 end
+loop do
+	puts "Are you ready to add a beer? (y/n)"
+	new_beer = gets.chomp
+	break if new_beer == "n"
+	puts "What is the brewery that made the beer?"
+	brewery = gets.chomp
+	puts "What is the beer called?"
+	name = gets.chomp
+	puts "What is the alcohol-by-volume?  (Please round up or down to the nearest integer)"
+	abv = gets.chomp
+	puts "What is the rating of the beer, out of 10?"
+	rating = gets.chomp
+	add_beer(beer_db, brewery, name, abv, rating)
+
+end
+
+loop do 
+	puts "Do you want to view your updated log?  You can view the sorted log by typing 'brewery', 'name', 'abv', or 'rating'.  Type 'no' to exit."
+	view = gets.chomp
+	break if view == "no"
+		if view == "brewery"
+			puts 
+
+end
+
+puts "Thanks for logging your beers.  Check back later to see them grow!"
