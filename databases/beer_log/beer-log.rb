@@ -95,78 +95,102 @@ print beer_db.execute(sort_abv)
 
 puts "Welcome to your very own beer log.  Here you will be able to rate all of the beers you drink, and give them ratings.  You'll also be able to sort them by brewery, name, alcohol percentage, and your rating."
 puts "Let's get started!  First, here is your most current beer log:"
-20.times do print "-" end
+40.times do print "-" end
 puts
 first_list = beer_db.execute(display_beer)
 first_list.each do |thing|
 	puts "Beer ##{thing['id']}.  You had a '#{thing['name']}' from #{thing['brewery']} at #{thing['abv']}%.  You rated it a #{thing['rating']}."
 end
-20.times do print "-" end
+40.times do print "-" end
 puts
 
-puts "Do you want to ADD a beer, view your log, or UPDATE your log? (Type 'add', 'view', or 'update')."
-action = gets.chomp
-if action == "add"
-	loop do
-		puts "Are you ready to ADD a beer? (yes/no)"
-		new_beer = gets.chomp.downcase
-		break if new_beer == "no"
-		if new_beer == "yes"
-			puts "What is the brewery that made the beer?"
-			brewery = gets.chomp
-			puts "What is the beer called?"
-			name = gets.chomp
-			puts "What is the alcohol-by-volume?"
-			abv = gets.chomp
-			puts "What is the rating of the beer, out of 10?"
-			rating = gets.chomp
-			add_beer(beer_db, brewery, name, abv, rating)
-		else
-			puts "I didn't quite understand that..."
-		end
-	end
+loop do
+	puts "Do you want to ADD a beer, VIEW your log, or UPDATE your log? (Type 'add', 'view', or 'update').  Type 'done' to finish."
+	action = gets.chomp
+	break if action == "done"
 
-elsif action == "view"		
-	20.times do print "-" end
+	if action == "add"
+		loop do
+			puts "Are you ready to ADD a beer? (yes/no)"
+			new_beer = gets.chomp.downcase
+			break if new_beer == "no"
+			if new_beer == "yes"
+				puts "What is the brewery that made the beer?"
+				brewery = gets.chomp
+				puts "What is the beer called?"
+				name = gets.chomp
+				puts "What is the alcohol-by-volume?"
+				abv = gets.chomp
+				puts "What is the rating of the beer, out of 10?"
+				rating = gets.chomp
+				add_beer(beer_db, brewery, name, abv, rating)
+			else
+				puts "I didn't quite understand that..."
+			end
+		end
+
+	elsif action == "view"		
+	40.times do print "-" end
 	puts
 	loop do 
 		puts "You can view the sorted log by typing 'brewery', 'name', 'abv', or 'rating'.  Type 'yes' to view your list in order, or 'no' to move on."
 		view = gets.chomp
 		break if view == "no"
 			if view == "yes"
+				40.times do print "-" end
+				puts
 				view = beer_db.execute(display_beer)
 				view.each do |thing|
 					puts "Beer ##{thing['id']}.  You had a '#{thing['name']}' from #{thing['brewery']} at #{thing['abv']}%.  You rated it a #{thing['rating']}."
 				end
+				40.times do print "-" end
+				puts
 		#include a 'yes' answer to view the ranked log
 			elsif view == "brewery"
+				40.times do print "-" end
+				puts
 				new_list = beer_db.execute(sort_brewery)
 				new_list.each do |thing|
 					puts "From #{thing['brewery']}.  The '#{thing['name']}' at #{thing['abv']}%.  You gave it a #{thing['rating']}."
 				end
+				40.times do print "-" end
+				puts
 			elsif view == "name"
+				40.times do print "-" end
+				puts
 				new_list = beer_db.execute(sort_name)
 				new_list.each do |thing|
 					puts "The '#{thing['name']}' from #{thing['brewery']}.  Coming in at #{thing['abv']}%.  You gave it a #{thing['rating']}."
 				end
+				40.times do print "-" end
+				puts
 			elsif view == "abv"
+				40.times do print "-" end
+				puts
 				new_list = beer_db.execute(sort_abv)
 				new_list.each do |thing|
 					puts "Coming in at #{thing['abv']}% was the '#{thing['name']}' from #{thing['brewery']}.  You gave it a #{thing['rating']}."
 				end
+				40.times do print "-" end
+				puts
 			elsif view == "rating"
+				40.times do print "-" end
+				puts
 				new_list = beer_db.execute(sort_rating)
 				new_list.each do |thing|
 					puts "Given a rating of #{thing['rating']}, the #{thing['abv']}% ABV '#{thing['name']}' by #{thing['brewery']} was the ##{thing['id']} beer you had."
 				end
+				40.times do print "-" end
+				puts
 			else 
 				puts "I didn't understand that... "
 			end
 		end
-elsif action == "update"	
-	
+
+	elsif action == "update"	
 	# try for updating a beer
-		loop do 20.times do print "-" end
+		loop do 
+			40.times do print "-" end
 			puts
 			puts "Does anything need to be EDITED?  Type 'update' or 'delete' to modify an entry, or type 'no' to finish."
 			update = gets.chomp
@@ -234,7 +258,8 @@ elsif action == "update"
 					puts "I didn't understand that..."
 				end
 		end
-else 
-	puts "What?  Try again."
+	else 
+		puts "What?  Try again."
+	end
 end
 puts "Thanks for logging your beers.  Check back later to see them all!"
