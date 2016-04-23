@@ -104,7 +104,7 @@ end
 20.times do print "-" end
 puts
 loop do
-	puts "Are you ready to add a beer? (yes/no)"
+	puts "Are you ready to ADD a beer? (yes/no)"
 	new_beer = gets.chomp.downcase
 	break if new_beer == "no"
 	if new_beer == "yes"
@@ -125,7 +125,7 @@ end
 20.times do print "-" end
 puts
 loop do 
-	puts "Do you want to view your updated log?  You can view the sorted log by typing 'brewery', 'name', 'abv', or 'rating'.  Type 'yes' to view your list in order, or 'no' to move on."
+	puts "Do you want to VIEW your UPDATED LOG?  You can view the sorted log by typing 'brewery', 'name', 'abv', or 'rating'.  Type 'yes' to view your list in order, or 'no' to move on."
 	view = gets.chomp
 	break if view == "no"
 		if view == "yes"
@@ -163,12 +163,13 @@ loop do
 # try for updating a beer
 	loop do 20.times do print "-" end
 		puts
-		puts "Does anything need to be edited?  Type 'update' or 'delete' to modify an entry, or type 'no' to finish."
+		puts "Does anything need to be EDITED?  Type 'update' or 'delete' to modify an entry, or type 'no' to finish."
 		update = gets.chomp
 		break if update == "no"
 			if update == "update"
 				puts "What do you want to change?  Type 'brewery', 'name', 'abv', or 'rating'."
 				change = gets.chomp
+
 					if change == "brewery"
 						puts "What number beer needs to change?"
 						id = gets.chomp.to_i
@@ -190,11 +191,27 @@ loop do
 					elsif change == "abv"
 						puts "What number beer needs to change?"
 						id = gets.chomp.to_i
-						puts "What is the actual alcohol-by-volume as a whole number?"
-						
+						puts "What is the actual alcohol-by-volume?"
+						abv = gets.chomp.to_f
+						update_abv(beer_db, id, abv)
+						new_abv = beer_db.execute("SELECT * FROM beers_drank WHERE id=#{id}")
+						new_abv.each do |thing|
+							puts "The updated alcohol-by-volume is now #{thing['abv']}."
+						end
 
 
-					# elsif
+					elsif change == "rating"
+						puts "What number beer needs a new rating?"
+						id = gets.chomp.to_i
+						puts "What is the new rating of beer ##{id}?"
+						rating = gets.chomp.to_f
+						update_rating(beer_db, id, rating)
+						new_rating = beer_db.execute("SELECT * FROM beers_drank WHERE id=#{id}")
+						new_rating.each do |thing|
+							puts "The new rating for beer ##{thing['id']} is a #{thing['rating']}."
+						end
+					else
+						puts "What?"
 						
 					end
 			elsif update == "delete"
