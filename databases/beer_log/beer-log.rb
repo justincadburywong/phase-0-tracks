@@ -23,5 +23,15 @@ create_table_cmd = <<-SQLSTUFF
 	)
 	SQLSTUFF
 
-
+# create a table for the beers!  bring it to life!  
 beer_db.execute(create_table_cmd)
+
+# make some methods to do stuff:
+
+# add a beer to the list
+def add_beer(db, name, brewery, abv, rating)
+	db.execute("INSERT INTO beers_drank( name, brewery, abv, rating) VALUES (?, ?, ?, ?)", [name, brewery, abv, rating])
+end
+
+# driver code to test population of beer array within database
+add_beer(beer_db, "chocolate stout", "high water brewing company", 5, 9)
