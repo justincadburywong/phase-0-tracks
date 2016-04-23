@@ -18,8 +18,8 @@ create_table_cmd = <<-SQLSTUFF
 	id INTEGER PRIMARY KEY,
 	name VARCHAR(255),
 	brewery VARCHAR(255),
-	abv INT,
-	rating INT
+	abv FLOAT,
+	rating FLOAT
 	)
 	SQLSTUFF
 
@@ -105,14 +105,14 @@ end
 puts
 loop do
 	puts "Are you ready to add a beer? (yes/no)"
-	new_beer = gets.chomp
+	new_beer = gets.chomp.downcase
 	break if new_beer == "no"
 	if new_beer == "yes"
 		puts "What is the brewery that made the beer?"
 		brewery = gets.chomp
 		puts "What is the beer called?"
 		name = gets.chomp
-		puts "What is the alcohol-by-volume?  (Please round up or down to the nearest integer)"
+		puts "What is the alcohol-by-volume?"
 		abv = gets.chomp
 		puts "What is the rating of the beer, out of 10?"
 		rating = gets.chomp
@@ -163,9 +163,9 @@ loop do
 # try for updating a beer
 	loop do 20.times do print "-" end
 		puts
-		puts "Does anything need to be edited?  Type 'update' or 'delete' to modify an entry, or type 'done' to finish."
+		puts "Does anything need to be edited?  Type 'update' or 'delete' to modify an entry, or type 'no' to finish."
 		update = gets.chomp
-		break if update == "done"
+		break if update == "no"
 			if update == "update"
 				puts "What do you want to change?  Type 'brewery', 'name', 'abv', or 'rating'."
 				change = gets.chomp
@@ -184,8 +184,13 @@ loop do
 						update_name(beer_db, id, name)
 						new_name = beer_db.execute("SELECT * FROM beers_drank WHERE id=#{id}")
 						new_name.each do |thing|
-							puts "The name #{thing['name']} has been updated."
+							puts "The name for the #{thing['name']} has been updated."
 						end
+
+					elsif change == "abv"
+						puts "What number beer needs to change?"
+						id = gets.chomp.to_i
+						puts "What is the actual alcohol-by-volume as a whole number?"
 						
 
 
