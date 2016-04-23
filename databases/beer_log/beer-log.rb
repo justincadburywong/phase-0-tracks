@@ -43,9 +43,11 @@ def update_rating(db, name, rating)
 	db.execute("UPDATE beers_drank SET rating=? WHERE name=?", [name, rating])
 end
 
+def delete_beer(db, id)
+	db.execute("DELETE FROM beers_drank WHERE ID=?", [id])
 # driver code to update beer - NOT WORKING YET
-
-update_rating(beer_db, "chocolate stout", 4)
+# update_rating(beer_db, "chocolate stout", 4)
+end
 
 #display all beers drankedt
 display_beer = <<-MORESQL
@@ -80,7 +82,7 @@ puts "Welcome to your very own beer log.  Here you will be able to rate all of t
 puts "Let's get started!  First, here is your most current beer log:"
 first_list = beer_db.execute(display_beer)
 first_list.each do |thing|
-	puts "Beer ##{thing['id']}.  You had a #{thing['name']} from #{thing['brewery']} at #{thing['abv']}%.  You rated it a #{thing['rating']}."
+	puts "Beer ##{thing['id']}.  You had a '#{thing['name']}' from #{thing['brewery']} at #{thing['abv']}%.  You rated it a #{thing['rating']}."
 end
 loop do
 	puts "Are you ready to add a beer? (yes/no)"
@@ -103,13 +105,13 @@ loop do
 end
 
 loop do 
-	puts "Do you want to view your updated log?  You can view the sorted log by typing 'brewery', 'name', 'abv', or 'rating'.  Type 'yes' to view your list in order, or 'no' to exit."
+	puts "Do you want to view your updated log?  You can view the sorted log by typing 'brewery', 'name', 'abv', or 'rating'.  Type 'yes' to view your list in order, or 'no' to move on."
 	view = gets.chomp
 	break if view == "no"
 		if view == "yes"
 			view = beer_db.execute(display_beer)
 			view.each do |thing|
-				puts "Beer ##{thing['id']}.  You had a #{thing['name']} from #{thing['brewery']} at #{thing['abv']}%.  You rated it a #{thing['rating']}."
+				puts "Beer ##{thing['id']}.  You had a '#{thing['name']}' from #{thing['brewery']} at #{thing['abv']}%.  You rated it a #{thing['rating']}."
 			end
 	#include a 'yes' answer to view the ranked log
 		elsif view == "brewery"
@@ -130,12 +132,41 @@ loop do
 		elsif view == "rating"
 			new_list = beer_db.execute(sort_rating)
 			new_list.each do |thing|
-				puts "Given a rating of #{thing['rating']}, the #{thing['abv']}% '#{thing['name']}' by #{thing['brewery']} was the ##{thing['id']} beer you had."
+				puts "Given a rating of #{thing['rating']}, the #{thing['abv']}% ABV '#{thing['name']}' by #{thing['brewery']} was the ##{thing['id']} beer you had."
 			end
 		else 
 			puts "I didn't understand that... "
 		end
+	end
+# try for updating a beer
+	loop do
+		puts "Does anything need to be edited?  Type 'update' or 'delete' to modify an entry, or type 'done' to finish."
+		update = gets.chomp
+		break if update == "done"
+			if update == "update"
+				puts "What do you want to change?  Type 'brewery', 'name', 'abv', or 'rating'."
+				change = gets.chomp
+					# if 
 
-end
+					# elsif
+						
+					# end
+			elsif update == "delete"
+				puts "What beer number do you want to delete?"
+				delete = gets.chomp.to_i
+				delete_beer(beer_db, delete)
+				puts "Here's your updated list:"
+				view = beer_db.execute(display_beer)
+				view.each do |thing|
+					puts "Beer ##{thing['id']}.  You had a '#{thing['name']}' from #{thing['brewery']} at #{thing['abv']}%.  You rated it a #{thing['rating']}."
+				end
+
+
+			else
+				puts "I didn't understand that..."
+			end
+	end
+
+
 
 puts "Thanks for logging your beers.  Check back later to see them all!"
