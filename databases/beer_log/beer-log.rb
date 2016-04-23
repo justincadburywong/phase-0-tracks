@@ -110,6 +110,7 @@ loop do
 	break if action == "done"
 
 	if action == "add"
+<<<<<<< HEAD
 		loop do
 			puts "Are you ready to ADD a beer? (yes/no)"
 			new_beer = gets.chomp.downcase
@@ -128,6 +129,17 @@ loop do
 				puts "I didn't quite understand that..."
 			end
 		end
+=======
+		puts "What is the brewery that made the beer?"
+		brewery = gets.chomp
+		puts "What is the beer called?"
+		name = gets.chomp
+		puts "What is the alcohol-by-volume?"
+		abv = gets.chomp
+		puts "What is the rating of the beer, out of 10?"
+		rating = gets.chomp
+		add_beer(beer_db, brewery, name, abv, rating)
+>>>>>>> 8490c70ad01c1f750b3f40a7636fbb49ce9491c3
 
 	elsif action == "view"		
 	40.times do print "-" end
