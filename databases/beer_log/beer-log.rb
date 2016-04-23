@@ -43,6 +43,16 @@ def update_brewery(db, id, brewery)
 	db.execute("UPDATE beers_drank SET brewery=? WHERE id=?", [brewery, id])
 end
 
+#update name of beer
+def update_name(db, id, name)
+	db.execute("UPDATE beers_drank SET name=? WHERE id=?", [name, id])
+end
+
+# update abv
+def update_abv(db, id, abv)
+	db.execute("UPDATE beers_drank SET abv=? WHERE id=?", [abv, id])
+end
+
 # update rating
 def update_rating(db, name, rating)
 	db.execute("UPDATE beers_drank SET rating=? WHERE name=?", [rating, name])
@@ -85,10 +95,14 @@ print beer_db.execute(sort_abv)
 
 puts "Welcome to your very own beer log.  Here you will be able to rate all of the beers you drink, and give them ratings.  You'll also be able to sort them by brewery, name, alcohol percentage, and your rating."
 puts "Let's get started!  First, here is your most current beer log:"
+20.times do print "-" end
+puts
 first_list = beer_db.execute(display_beer)
 first_list.each do |thing|
 	puts "Beer ##{thing['id']}.  You had a '#{thing['name']}' from #{thing['brewery']} at #{thing['abv']}%.  You rated it a #{thing['rating']}."
 end
+20.times do print "-" end
+puts
 loop do
 	puts "Are you ready to add a beer? (yes/no)"
 	new_beer = gets.chomp
@@ -108,7 +122,8 @@ loop do
 	end
 
 end
-
+20.times do print "-" end
+puts
 loop do 
 	puts "Do you want to view your updated log?  You can view the sorted log by typing 'brewery', 'name', 'abv', or 'rating'.  Type 'yes' to view your list in order, or 'no' to move on."
 	view = gets.chomp
@@ -146,7 +161,8 @@ loop do
 
 
 # try for updating a beer
-	loop do
+	loop do 20.times do print "-" end
+		puts
 		puts "Does anything need to be edited?  Type 'update' or 'delete' to modify an entry, or type 'done' to finish."
 		update = gets.chomp
 		break if update == "done"
@@ -159,6 +175,18 @@ loop do
 						puts "What is the brewery called?"
 						brewery = gets.chomp
 						update_brewery(beer_db, id, brewery)
+
+					elsif change == "name"
+						puts "what number beer needs to change?"
+						id = gets.chomp.to_i
+						puts "What is the real name of the beer?"
+						name = gets.chomp
+						update_name(beer_db, id, name)
+						new_name = beer_db.execute("SELECT * FROM beers_drank WHERE id=#{id}")
+						new_name.each do |thing|
+							puts "The name #{thing['name']} has been updated."
+						end
+						
 
 
 					# elsif
