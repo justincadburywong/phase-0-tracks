@@ -29,27 +29,33 @@ beer_db.execute(create_table_cmd)
 # make some methods to do stuff:
 
 # add a beer to the list
-def add_beer(db, name, brewery, abv, rating)
-	db.execute("INSERT INTO beers_drank( name, brewery, abv, rating) VALUES (?, ?, ?, ?)", [name, brewery, abv, rating])
+def add_beer(db, brewery, name, abv, rating)
+	db.execute("INSERT INTO beers_drank( brewery, name, abv, rating) VALUES (?, ?, ?, ?)", [name, brewery, abv, rating])
 end
 
 # driver code to test population of beer array within database
-# add_beer(beer_db, "chocolate stout", "high water brewing company", 5, 9)
-
+# add_beer(beer_db, "high water brewing company", "chocolate stout", 5, 9)
+# add_beer(beer_db, "21st ammendment", "back to black", 7, 10)
+# add_beer(beer_db, "bear republic", "racer 5", 6, 9)
 #display all beers drankedt
 
 display_beer = <<-MORESQL
 	SELECT * FROM beers_drank
 	MORESQL
-	
+
 # driver code to display list
 print beer_db.execute(display_beer)
-
 # update rating
+def update_rating(db, name, rating)
+	db.execute("UPDATE beers_drank SET rating=? WHERE name=?", [name, rating])
+end
+
+# driver code to update beer
+update_rating(beer_db, "chocolate stout", 4)
+# sort by (user input)
 
 
-
-
+print beer_db.execute(display_beer)
 
 
 
