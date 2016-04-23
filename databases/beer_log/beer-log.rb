@@ -105,12 +105,12 @@ loop do
 		if view == "brewery"
 			new_list = beer_db.execute(sort_brewery)
 			new_list.each do |thing|
-				puts "From #{thing['brewery']}.  The #{thing['name']} at #{thing['abv']}%.  You gave it a #{thing['rating']}."
+				puts "From #{thing['brewery']}.  The '#{thing['name']}' at #{thing['abv']}%.  You gave it a #{thing['rating']}."
 			end
 		elsif view == "name"
 			new_list = beer_db.execute(sort_name)
 			new_list.each do |thing|
-				puts
+				puts "The '#{thing['name']}' from #{thing['brewery']}.  Coming in at #{thing['abv']}%.  You gave it a #{thing['rating']}."
 			end
 		elsif view == "abv"
 			puts beer_db.execute(sort_abv)
