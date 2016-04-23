@@ -86,24 +86,33 @@ loop do
 	puts "Are you ready to add a beer? (yes/no)"
 	new_beer = gets.chomp
 	break if new_beer == "no"
-	puts "What is the brewery that made the beer?"
-	brewery = gets.chomp
-	puts "What is the beer called?"
-	name = gets.chomp
-	puts "What is the alcohol-by-volume?  (Please round up or down to the nearest integer)"
-	abv = gets.chomp
-	puts "What is the rating of the beer, out of 10?"
-	rating = gets.chomp
-	add_beer(beer_db, brewery, name, abv, rating)
+	if new_beer == "yes"
+		puts "What is the brewery that made the beer?"
+		brewery = gets.chomp
+		puts "What is the beer called?"
+		name = gets.chomp
+		puts "What is the alcohol-by-volume?  (Please round up or down to the nearest integer)"
+		abv = gets.chomp
+		puts "What is the rating of the beer, out of 10?"
+		rating = gets.chomp
+		add_beer(beer_db, brewery, name, abv, rating)
+	else
+		puts "I didn't quite understand that..."
+	end
 
 end
 
 loop do 
-	puts "Do you want to view your updated log?  You can view the sorted log by typing 'brewery', 'name', 'abv', or 'rating'.  Type 'no' to exit."
+	puts "Do you want to view your updated log?  You can view the sorted log by typing 'brewery', 'name', 'abv', or 'rating'.  Type 'yes' to view your list in order, or 'no' to exit."
 	view = gets.chomp
 	break if view == "no"
+		if view == "yes"
+			view = beer_db.execute(display_beer)
+			view.each do |thing|
+				puts "Beer ##{thing['id']}.  You had a #{thing['name']} from #{thing['brewery']} at #{thing['abv']}%.  You rated it a #{thing['rating']}."
+			end
 	#include a 'yes' answer to view the ranked log
-		if view == "brewery"
+		elsif view == "brewery"
 			new_list = beer_db.execute(sort_brewery)
 			new_list.each do |thing|
 				puts "From #{thing['brewery']}.  The '#{thing['name']}' at #{thing['abv']}%.  You gave it a #{thing['rating']}."
@@ -121,7 +130,7 @@ loop do
 		elsif view == "rating"
 			new_list = beer_db.execute(sort_rating)
 			new_list.each do |thing|
-				puts "Given a rating of #{thing['rating']}, the #{thing['abv']}% '#{thing['name']}' by #{thing['brewery']}."
+				puts "Given a rating of #{thing['rating']}, the #{thing['abv']}% '#{thing['name']}' by #{thing['brewery']} was the ##{thing['id']} beer you had."
 			end
 		else 
 			puts "I didn't understand that... "
