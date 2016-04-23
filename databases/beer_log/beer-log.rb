@@ -37,25 +37,42 @@ end
 # add_beer(beer_db, "high water brewing company", "chocolate stout", 5, 9)
 # add_beer(beer_db, "21st ammendment", "back to black", 7, 10)
 # add_beer(beer_db, "bear republic", "racer 5", 6, 9)
-#display all beers drankedt
 
-display_beer = <<-MORESQL
-	SELECT * FROM beers_drank
-	MORESQL
-
-# driver code to display list
-print beer_db.execute(display_beer)
 # update rating
 def update_rating(db, name, rating)
 	db.execute("UPDATE beers_drank SET rating=? WHERE name=?", [name, rating])
 end
 
-# driver code to update beer
+# driver code to update beer - NOT WORKING YET
+
 update_rating(beer_db, "chocolate stout", 4)
+
+#display all beers drankedt
+display_beer = <<-MORESQL
+	SELECT * FROM beers_drank
+	MORESQL
+
 # sort by (user input)
+sort_brewery = <<-BREWERYSQL
+	SELECT * FROM beers_drank ORDER BY brewery
+	BREWERYSQL
+
+sort_name = <<-NAMESQL
+	SELECT * FROM beers_drank ORDER BY name
+	NAMESQL
+
+sort_abv = <<-ABVSQL
+	SELECT * FROM beers_drank ORDER BY abv
+	ABVSQL
+
+sort_rating = <<-RATINGSQL
+	SELECT * FROM beers_drank ORDER BY rating
+	RATINGSQL
 
 
 print beer_db.execute(display_beer)
+
+print beer_db.execute(sort_abv)
 
 
 
