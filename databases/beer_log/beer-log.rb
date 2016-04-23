@@ -3,7 +3,7 @@
 # be able to view the beers by any of the attributes
 
 # create a loop that asks to populate the log, edit from, view, etc.
-# no deleting allow, because you can't un-drink a beer (well, maybe you can
+# no deleting allowed, because you can't un-drink a beer (well, maybe you can
 # let's not get into that...)
 
 #require gems
