@@ -103,9 +103,15 @@ loop do
 	view = gets.chomp
 	break if view == "no"
 		if view == "brewery"
-			puts beer_db.execute(sort_brewery)
+			new_list = beer_db.execute(sort_brewery)
+			new_list.each do |thing|
+				puts "From #{thing['brewery']}.  The #{thing['name']} at #{thing['abv']}%.  You gave it a #{thing['rating']}."
+			end
 		elsif view == "name"
-			puts beer_db.execute(sort_name)
+			new_list = beer_db.execute(sort_name)
+			new_list.each do |thing|
+				puts
+			end
 		elsif view == "abv"
 			puts beer_db.execute(sort_abv)
 		elsif view == "rating"
