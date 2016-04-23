@@ -38,9 +38,14 @@ end
 # add_beer(beer_db, "21st ammendment", "back to black", 7, 10)
 # add_beer(beer_db, "bear republic", "racer 5", 6, 9)
 
+#update brewery name (in case of drunk fingers)
+def update_brewery(db, id, brewery)
+	db.execute("UPDATE beers_drank SET brewery=? WHERE id=?", [brewery, id])
+end
+
 # update rating
 def update_rating(db, name, rating)
-	db.execute("UPDATE beers_drank SET rating=? WHERE name=?", [name, rating])
+	db.execute("UPDATE beers_drank SET rating=? WHERE name=?", [rating, name])
 end
 
 def delete_beer(db, id)
@@ -138,6 +143,8 @@ loop do
 			puts "I didn't understand that... "
 		end
 	end
+
+
 # try for updating a beer
 	loop do
 		puts "Does anything need to be edited?  Type 'update' or 'delete' to modify an entry, or type 'done' to finish."
@@ -146,11 +153,17 @@ loop do
 			if update == "update"
 				puts "What do you want to change?  Type 'brewery', 'name', 'abv', or 'rating'."
 				change = gets.chomp
-					# if 
+					if change == "brewery"
+						puts "What number beer needs to change?"
+						id = gets.chomp.to_i
+						puts "What is the brewery called?"
+						brewery = gets.chomp
+						update_brewery(beer_db, id, brewery)
+
 
 					# elsif
 						
-					# end
+					end
 			elsif update == "delete"
 				puts "What beer number do you want to delete?"
 				delete = gets.chomp.to_i
