@@ -113,7 +113,10 @@ loop do
 				puts "The '#{thing['name']}' from #{thing['brewery']}.  Coming in at #{thing['abv']}%.  You gave it a #{thing['rating']}."
 			end
 		elsif view == "abv"
-			puts beer_db.execute(sort_abv)
+			new_list = beer_db.execute(sort_abv)
+			new_list.each do |thing|
+				puts "Coming in at #{thing['abv']}% was the '#{thing['name']}' from #{thing['brewery']}.  You gave it a #{thing['rating']}."
+			end
 		elsif view == "rating"
 			puts beer_db.execute(sort_rating)
 		else 
