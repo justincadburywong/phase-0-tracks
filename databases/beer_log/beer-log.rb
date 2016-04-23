@@ -11,7 +11,7 @@ require 'sqlite3'
 
 # create a database
 beer_db = SQLite3::Database.new("beer-log.db")
-
+beer_db.results_as_hash = true
 #create a table within the database
 create_table_cmd = <<-SQLSTUFF
 	CREATE TABLE IF NOT EXISTS beers_drank(
@@ -30,7 +30,7 @@ beer_db.execute(create_table_cmd)
 
 # add a beer to the list
 def add_beer(db, brewery, name, abv, rating)
-	db.execute("INSERT INTO beers_drank( brewery, name, abv, rating) VALUES (?, ?, ?, ?)", [name, brewery, abv, rating])
+	db.execute("INSERT INTO beers_drank( brewery, name, abv, rating) VALUES (?, ?, ?, ?)", [brewery, name, abv, rating])
 end
 
 # driver code to test population of beer array within database
@@ -69,11 +69,16 @@ sort_rating = <<-RATINGSQL
 	SELECT * FROM beers_drank ORDER BY rating
 	RATINGSQL
 
-
+=begin driver code
 print beer_db.execute(display_beer)
-
 print beer_db.execute(sort_abv)
+=end
 
+# now the interactive loop for users to try:
 
-
-
+puts "Welcome to your very own beer log.  Here you will be able to rate all of the beers you drink, and give them ratings.  You'll also be able to sort them by brewery, name, alcohol percentage, and your rating."
+puts "Let's get started!  First, here is your most current beer log:"
+first_list = beer_db.execute(display_beer)
+first_list.each do |thing|
+	puts "Beer ##{thing['id']}.  You had a #{thing['name']} from #{thing['brewery']} at #{thing['abv']}%.  You rated it a #{thing['rating']}."
+end
