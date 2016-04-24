@@ -1,0 +1,107 @@
+## Display the information in one table (either table is fine).
+
+	sqlite> SELECT * FROM houses;
+	id          address               year_built  price       city_id
+	----------  --------------------  ----------  ----------  ----------
+	1           429 E Blithedale Ave  1952        $ 769,700   1
+	2           18 Edgewood Ave       1929        $ 2,206,50  1
+	3           145 Marion Ave        1900        $ 2,746,69  1
+	4           321 Summit Ave        2001        $ 5,495,00  1
+	5           214 Richardson St     1907        $ 1,895,00  2
+	6           614 Wateree St        1989        $ 879,000   2
+	7           164 Crescent Ave      1996        $ 3,250,00  2
+	8           601 Nevada St         1974        $ 650,000   2
+	9           3636 Paradise Dr      2015        $ 7,250,00  3
+	10          138 Steward Dr        1938        $ 2,000,00  3
+	11          2517 Mar East St      1968        $ 3,495,00  3
+	12          480 Ridge Rd          1955        $ 5,495,00  3
+
+
+
+## Update an item that meets some condition (you can choose a condition that makes sense).
+
+	sqlite> SELECT * FROM cities;
+	id          name         population  median_income
+	----------  -----------  ----------  -------------
+	1           Mill Valley  14403       132192
+	2           Sausalito    7135        111132
+	3           Tiburon      9224        130661
+
+	sqlite> UPDATE cities SET population=14497 WHERE name="Mill Valley";
+
+	sqlite> SELECT * FROM cities;
+	id          name         population  median_income
+	----------  -----------  ----------  -------------
+	1           Mill Valley  14497       132192
+	2           Sausalito    7135        111132
+	3           Tiburon      9224        130661
+
+## Display the information in both tables using one query.
+
+	sqlite> SELECT * FROM houses, cities WHERE houses.city_id = cities.id;
+	id          address               year_built  price       city_id     id          name         population  median_income
+	----------  --------------------  ----------  ----------  ----------  ----------  -----------  ----------  -------------
+	1           429 E Blithedale Ave  1952        $ 769,700   1           1           Mill Valley  14403       132192
+	2           18 Edgewood Ave       1929        $ 2,206,50  1           1           Mill Valley  14403       132192
+	3           145 Marion Ave        1900        $ 2,746,69  1           1           Mill Valley  14403       132192
+	4           321 Summit Ave        2001        $ 5,495,00  1           1           Mill Valley  14403       132192
+	5           214 Richardson St     1907        $ 1,895,00  2           2           Sausalito    7135        111132
+	6           614 Wateree St        1989        $ 879,000   2           2           Sausalito    7135        111132
+	7           164 Crescent Ave      1996        $ 3,250,00  2           2           Sausalito    7135        111132
+	8           601 Nevada St         1974        $ 650,000   2           2           Sausalito    7135        111132
+	9           3636 Paradise Dr      2015        $ 7,250,00  3           3           Tiburon      9224        130661
+	10          138 Steward Dr        1938        $ 2,000,00  3           3           Tiburon      9224        130661
+	11          2517 Mar East St      1968        $ 3,495,00  3           3           Tiburon      9224        130661
+	12          480 Ridge Rd          1955        $ 5,495,00  3           3           Tiburon      9224        130661
+
+## Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+
+	sqlite> SELECT houses.address, cities.name FROM houses JOIN cities ON houses.	city_id = cities.id;
+	address               name
+	--------------------  -----------
+	429 E Blithedale Ave  Mill Valley
+	18 Edgewood Ave       Mill Valley
+	145 Marion Ave        Mill Valley
+	321 Summit Ave        Mill Valley
+	214 Richardson St     Sausalito
+	614 Wateree St        Sausalito
+	164 Crescent Ave      Sausalito
+	601 Nevada St         Sausalito
+	3636 Paradise Dr      Tiburon
+	138 Steward Dr        Tiburon
+	2517 Mar East St      Tiburon
+	480 Ridge Rd          Tiburon
+
+## Delete an item that meets some condition (you can choose a condition that makes sense).
+
+	sqlite> SELECT * FROM houses;
+	id          address               year_built  price       city_id
+	----------  --------------------  ----------  ----------  ----------
+	1           429 E Blithedale Ave  1952        $ 769,700   1
+	2           18 Edgewood Ave       1929        $ 2,206,50  1
+	3           145 Marion Ave        1900        $ 2,746,69  1
+	4           321 Summit Ave        2001        $ 5,495,00  1
+	5           214 Richardson St     1907        $ 1,895,00  2
+	6           614 Wateree St        1989        $ 879,000   2
+	7           164 Crescent Ave      1996        $ 3,250,00  2
+	8           601 Nevada St         1974        $ 650,000   2
+	9           3636 Paradise Dr      2015        $ 7,250,00  3
+	10          138 Steward Dr        1938        $ 2,000,00  3
+	11          2517 Mar East St      1968        $ 3,495,00  3
+	12          480 Ridge Rd          1955        $ 5,495,00  3
+
+	sqlite> DELETE FROM houses WHERE year_built<1950;
+	
+	sqlite> SELECT * FROM houses;
+	id          address               year_built  price       city_id
+	----------  --------------------  ----------  ----------  ----------
+	1           429 E Blithedale Ave  1952        $ 769,700   1
+	4           321 Summit Ave        2001        $ 5,495,00  1
+	6           614 Wateree St        1989        $ 879,000   2
+	7           164 Crescent Ave      1996        $ 3,250,00  2
+	8           601 Nevada St         1974        $ 650,000   2
+	9           3636 Paradise Dr      2015        $ 7,250,00  3
+	11          2517 Mar East St      1968        $ 3,495,00  3
+	12          480 Ridge Rd          1955        $ 5,495,00  3
+
+
