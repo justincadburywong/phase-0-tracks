@@ -19,3 +19,8 @@ function changeStyle() {
 
 
 // changeStyle();
+
+var header = document.getElementById("Frustrated_first_header");
+header.addEventListener("click", changeStyle);
+
+// hella tight, yo!
