@@ -31,7 +31,7 @@ end
 
 
 post '/students/campus' do
-	db.execute("INSERT INTO students (name, campus, age) VALUES (null, ?, null)", [params['campus']])
+	db.execute("UPDATE students SET new_campus WHERE id=1")
 	redirect 'students/campus'
 end
 
