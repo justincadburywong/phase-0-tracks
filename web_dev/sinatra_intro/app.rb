@@ -45,13 +45,12 @@ get '/students/:id' do
   student.to_s
 end
 
-
-
+# contact with query parameter
 get '/contact' do
   "Hit us up at 429 E Blithedale Ave, Mill Valley, CA 94941"
 end
 
-
+# query parameter or no query parameter
 get '/great_job' do
   name = params[:name]
   if name
@@ -59,6 +58,14 @@ get '/great_job' do
   else
     "Good job!"
   end
+end
+
+#two route parameters
+get '/math/:num1/plus/:num2' do
+  num1 = params[:num1].to_i
+  num2 = params[:num2].to_i
+  sum = num1 + num2
+  sum.to_s
 end
 
 
