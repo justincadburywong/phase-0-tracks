@@ -1,0 +1,1 @@
+the strategies that worked best for me was to go to codeacademy.com and practice jQuery.  i don't think that reading about it helps too much, i really like to brute-force my way through a problem using trial and error, so i can see what works and what doesn't.
