@@ -48,7 +48,7 @@ end
 
 
 get '/contact' do
-
+  "Hit us up at 429 E Blithedale Ave, Mill Valley, CA 94941"
 end
 
 
