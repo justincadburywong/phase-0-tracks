@@ -30,9 +30,9 @@ get '/students/campus' do
 end
 
 
-post '/students/campus/post' do
-	db.execute("UPDATE students SET campus=? WHERE id=1")
-	redirect 'students/campus'
+post '/students/campus/update' do
+	db.execute("UPDATE students SET campus=? WHERE id=?", [params['campus'], params['id']])
+	redirect '/students/campus'
 end
 
 
