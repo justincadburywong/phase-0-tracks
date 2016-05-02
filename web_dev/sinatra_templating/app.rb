@@ -24,4 +24,16 @@ post '/students' do
   redirect '/'
 end
 
+get '/students/campus' do
+	@campus = db.execute("SELECT * FROM students")
+	erb :campus
+end
+
+
+post '/students/campus' do
+	db.execute("UPDATE students SET new_campus WHERE id=1")
+	redirect 'students/campus'
+end
+
+
 # add static resources
