@@ -40,8 +40,8 @@ end
 # write a GET route that retrieves
 # a particular student
 
-get '/students/:id' do
-  student = db.execute("SELECT * FROM students WHERE id=?", [params[:id]])[0]
+get '/students/:name' do
+  student = db.execute("SELECT * FROM students WHERE name=?", [params[:name]])[0]
   student.to_s
 end
 
