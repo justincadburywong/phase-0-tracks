@@ -8,7 +8,7 @@ db.results_as_hash = true
 # write a basic GET route
 # add a query parameter
 # GET /
-get '/' do
+get '/age' do
   "#{params[:name]} is #{params[:age]} years old."
 end
 
@@ -53,6 +53,12 @@ end
 
 
 get '/great_job' do
+  name = params[:name]
+  if name
+    "Good job, #{name}!"
+  else
+    "Good job!"
+  end
 end
 
 
